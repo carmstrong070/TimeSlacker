@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <title>ADA Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Content/CSS/bootstrap-slate.min.css">
+    <link rel="stylesheet" href="Content/CSS/billboard.min.css" />
+    <link rel="stylesheet" href="Content/CSS/svg-with-js.min.css">
+    <link rel="stylesheet" href="Content/CSS/ada-slacker.css">
+</head>
+<body class="d-flex flex-column h-100">
+    <header>
+        <nav id="header-nav" class="navbar navbar-expand-lg  bg-header fixed-top" data-bs-theme="dark">
+            <div class="container-xl">
+                <a href="javascript:void(0);" class="navbar-brand">ADA</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="page-content" role="main" class="flex-grow-1">
+
+        <!-- HERO DISPLAY -->
+        <div class="position-relative">
+            <div class="py-5" style="background: linear-gradient(0deg, rgba(16,67,71,0.7) 0%, rgba(17,61,89,0) 50%, rgba(17,61,89,0.6) 100%); ">
+                <div class="container-xl">
+                    <div class="row justify-content-between">
+                        <div class="col d-flex align-items-center">
+                            <div>
+                                <h1 class="fw-bold text-white text-uppercase kremlinizer mb-0" style="font-size: 5rem;">Time Slacker</h1>
+                                <p class="lead text-white px-4 px-lg-0" style="font-size: 2rem; margin-top: -10px;">
+                                    Keeping you honest about your failures.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa-solid fa-business-time text-white" style="font-size: 18rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INITIAL STAT CARDS -->
+        <div class="position-relative">
+            <div class="py-5">
+                <div class="container-xl">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                                <h4 id="lblFirstStat" class="card-header"></h4>
+                                <div class="card-body">
+                                    <h4 class="card-title">Failure Rate</h4>
+                                    <p id="lblFailureRate" class="card-text">
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHART DISPLAY -->
+        <div class="position-relative">
+            <div class="py-5">
+                <div class="container-xl">
+                    <div id="chart"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="Scripts/jquery-3.6.1.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <script src="Scripts/d3js.org_d3.v6.min.js"></script>
+    <script src="Scripts/billboard.min.js"></script>
+    <script src="Scripts/fontawesome-all.min.js"></script>
+    <script src="Scripts/ada-slacker.js"></script>
+</body>
+</html>
