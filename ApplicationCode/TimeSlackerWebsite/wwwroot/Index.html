@@ -7,13 +7,17 @@
     <link rel="stylesheet" href="Content/CSS/bootstrap-slate.min.css">
     <link rel="stylesheet" href="Content/CSS/billboard.min.css" />
     <link rel="stylesheet" href="Content/CSS/svg-with-js.min.css">
-    <link rel="stylesheet" href="Content/CSS/ada-slacker.css">
+    <link rel="stylesheet" href="Content/CSS/slackerstyle.css">
 </head>
 <body class="d-flex flex-column h-100">
     <header>
-        <nav id="header-nav" class="navbar navbar-expand-lg  bg-header fixed-top" data-bs-theme="dark">
+        <nav id="header-nav" class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark">
             <div class="container-xl">
-                <a href="javascript:void(0);" class="navbar-brand">ADA</a>
+                <div class="navbar-brand d-flex align-items-center">
+                    <span id="ada-title">ADA</span>
+                    <span id="site-separator">//</span>
+                    <span id="site-title" class="text-uppercase">Time Slacker</span>
+                </div>
             </div>
         </nav>
     </header>
@@ -27,8 +31,8 @@
                     <div class="row justify-content-between">
                         <div class="col d-flex align-items-center">
                             <div>
-                                <h1 class="fw-bold text-white text-uppercase kremlinizer mb-0" style="font-size: 5rem;">Time Slacker</h1>
-                                <p class="lead text-white px-4 px-lg-0" style="font-size: 2rem; margin-top: -10px;">
+                                <h1 class="text-white text-uppercase site-title mb-0" style="font-size: 5rem;">Time Slacker</h1>
+                                <p class="lead text-white bahnizer px-4 px-lg-0" style="font-size: 2rem; margin-top: -10px;">
                                     Keeping you honest about your failures.
                                 </p>
                             </div>
@@ -39,6 +43,121 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- LATEST FAILURES -->
+        <div class="position-relative">
+            <div class="py-5" style="background: #101216">
+                <div class="container-xl">
+                    <h2 class="text-center text-white text-uppercase bahnizer mb-0" style="font-size: 2.5rem;">Latest failures</h2>
+                    <h3 class="text-center fw-light bahnizer">
+                        10/2 &mdash; 10/8
+                    </h3>
+                    <hr />
+                    <div class="row">
+                        <div class="col-xxl-3 col-xl-4 col-md-6 d-md-flex align-items-stretch mb-3">
+                            <div class="card h-100 w-100 shadow">
+                                <div class="card-body d-md-flex flex-md-column">
+                                    <div class="img-fluid card-img-top mb-3">
+                                        <div class="text-center">
+                                            <i class="fa-solid fa-user" style="font-size: 5rem;"></i>
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title">Zach Vaughn</h5>
+                                    <p class="card-text flex-md-fill">
+                                        Lorem ipsum
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-xl-4 col-md-6 d-md-flex align-items-stretch mb-3">
+                            <div class="card h-100 w-100 shadow">
+                                <div class="card-body d-md-flex flex-md-column">
+                                    <div class="img-fluid card-img-top mb-3">
+                                        <div class="text-center">
+                                            <i class="fa-solid fa-user" style="font-size: 5rem;"></i>
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title">Kelsey Bonnicksen</h5>
+                                    <p class="card-text flex-md-fill">
+                                        Lorem ipsum
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-xl-4 col-md-6 d-md-flex align-items-stretch mb-3">
+                            <div class="card h-100 w-100 shadow">
+                                <div class="card-body d-md-flex flex-md-column">
+                                    <div class="img-fluid card-img-top mb-3">
+                                        <div class="text-center">
+                                            <i class="fa-solid fa-user" style="font-size: 5rem;"></i>
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title">Kent Ishida</h5>
+                                    <p class="card-text flex-md-fill">
+                                        Lorem ipsum
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAILS OVER TIME -->
+        <div class="position-relative">
+            <div class="py-5" style="background: #2a1e2f">
+                <div class="container-xl">
+                    <h2 class="text-center text-white text-uppercase bahnizer mb-0" style="font-size: 2.5rem;">Fails over time</h2>
+                    <hr />
+                    <div id="fails-over-time-chart"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WORST PEOPLE -->
+        <div class="position-relative">
+            <div class="row gx-0">
+                <div class="col-lg-4">
+                    <div class="py-5" style="background: #2f1f1e">
+                        <div class="container-xl">
+                            <h2 class="text-center text-white text-uppercase bahnizer mb-0" style="font-size: 2.5rem;">Worst Guy</h2>
+                            <hr />
+                            <div class="card h-100 w-100 shadow">
+                                <div class="card-body d-md-flex flex-md-column">
+                                    <div class="img-fluid card-img-top mb-3">
+                                        <div class="text-center">
+                                            <i class="fa-solid fa-user" style="font-size: 10rem;"></i>
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title">Kent Ishida</h5>
+                                    <p class="card-text flex-md-fill">
+                                        Lorem ipsum
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="py-5" style="background: #2f2b1e">
+                        <div class="container-xl">
+                            <h2 class="text-center text-white text-uppercase bahnizer mb-0" style="font-size: 2.5rem;">CLOSE CONTENDERS</h2>
+                            <hr />
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action active">Cras justo odio</a>
+                                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                                <a href="#" class="list-group-item list-group-item-action disabled">Morbi leo risus</a>
+                                <a href="#" class="list-group-item list-group-item-action active">Cras justo odio</a>
+                                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                                <a href="#" class="list-group-item list-group-item-action disabled">Morbi leo risus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
 
         <!-- INITIAL STAT CARDS -->
@@ -113,6 +232,7 @@
     <script src="Scripts/fontawesome-all.min.js"></script>
     <script src="Scripts/slacker-utilities.js"></script>
     <script src="Scripts/slacker-core.js"></script>
+    <script src="Scripts/slacker-fails-over-time.js"></script>
     <script src="Scripts/slacker-stats.js"></script>
     <script src="Scripts/slacker-treemap.js"></script>
 </body>

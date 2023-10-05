@@ -5,5 +5,6 @@ var slacker_rootPath = "C:\\Team\\web\\";
 $(function () {
     getRecentFails();
     getClosestCall();
+    getFailsOverTime();
     getTreemap();
 });

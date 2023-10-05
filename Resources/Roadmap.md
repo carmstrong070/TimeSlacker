@@ -68,6 +68,7 @@
 | **Employee Of The Month** _or_ **Milking it** | Most hours logged in a month |
 | **All by myself** | Only person to report time to a specific WO# |
 | **Emoji User** | Uses smiley faces in timesheet notes |
+| **The Seabass** | Charging 10 hours of vacation time in a week |
 
 ---
 
