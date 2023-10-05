@@ -66,6 +66,8 @@
 | **Predictable** | Most Monday timesheet submissions when Monday is not the end date |
 | **Smarter Not Harder** | Least hours logged in _time period_ |
 | **Employee Of The Month** _or_ **Milking it** | Most hours logged in a month |
+| **All by myself** | Only person to report time to a specific WO# |
+| **Emoji User** | Uses smiley faces in timesheet notes |
 
 ---
 

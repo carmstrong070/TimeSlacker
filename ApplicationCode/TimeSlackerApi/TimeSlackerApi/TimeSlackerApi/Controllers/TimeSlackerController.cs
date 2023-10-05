@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TimeSlackerApi.Data;
+using TimeSlackerApi.Data.Models;
 
 namespace TimeSlackerApi.Controllers
 {
@@ -26,5 +27,9 @@ namespace TimeSlackerApi.Controllers
 
             return new {Name = ret.Name, SecondsTilFail = ret.SecondsTilFail };
         }
+
+        [HttpGet]
+        [Route("GetAllFails")]
+        public List<PersonFails> GetAllFails() => TimeSlackerDataProcessor.GetAllFails();
     }
 }
