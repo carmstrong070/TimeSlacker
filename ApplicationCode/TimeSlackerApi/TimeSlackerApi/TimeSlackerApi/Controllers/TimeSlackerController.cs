@@ -16,8 +16,17 @@ namespace TimeSlackerApi.Controllers
         }
 
         [HttpGet]
+        [Route("GetMostRecentPeriod")]
+        public object GetMostRecentPeriod()
+        {
+            var ret = TimeSlackerDataProcessor.GetMostRecentPeriod();
+
+            return new { recentStartDate = ret.recentStartDate, recentEndDate = ret.recentEndDate };
+        }
+
+        [HttpGet]
         [Route("GetRecentFails")]
-        public List<string> GetRecentFails() => TimeSlackerDataProcessor.GetRecentFails();
+        public List<RecentFail> GetRecentFails() => TimeSlackerDataProcessor.GetRecentFails();
 
         [HttpGet]
         [Route("GetClosestCall")]
@@ -25,7 +34,7 @@ namespace TimeSlackerApi.Controllers
         {
             var ret = TimeSlackerDataProcessor.GetClosestCall();
 
-            return new {Name = ret.Name, SecondsTilFail = ret.SecondsTilFail };
+            return new { Name = ret.Name, SecondsTilFail = ret.SecondsTilFail };
         }
 
         [HttpGet]

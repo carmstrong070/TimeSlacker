@@ -74,24 +74,81 @@ namespace TimeSlackerApi.Data
 
             return retList;
         }
-        public static List<string> GetRecentFails()
+
+        public static List<RecentFail> GetRecentFails()
         {
-            var retList = new List<string>();
+            var retList = new List<RecentFail>();
 
             using (var sqlConn = new SqlConnection(TimeSlackerApiDatabaseConnection.conn))
             using (var cmd = sqlConn.CreateCommand())
             {
-                cmd.CommandText = @"SELECT e.Fname + ' ' + e.Lname
-	                                    FROM tbl_Employees e
-		                                    LEFT JOIN Submission.SubmissionApprovalEvents ae
-			                                    ON e.Employee_Id = ae.Employee_ID 
-				                                    AND ae.EventDateStamp < DATEADD(dd, 1, ae.EventDurationEndDate)
-				                                    AND ae.EventDurationEndDate = (SELECT TOP (1) ae.EventDurationEndDate
-						                                    FROM Submission.SubmissionApprovalEvents ae
-						                                    WHERE ae.EventDurationEndDate < GETDATE()
-						                                    ORDER BY ae.EventDurationEndDate DESC)
-				                                    AND ae.EventTypeId = '1'
-	                                    WHERE e.IsActive = '1' AND ae.EventDateStamp IS NULL";
+                cmd.CommandText = @"-- Fails of the Previous week
+									WITH MostRecent (Employee_Id, MostRecent)
+									AS
+									(
+									-- Most Recent Fail besides last week.
+									SELECT Employee_Id, MAX(EventDurationEndDate)
+										FROM Submission.SubmissionApprovalEvents ae
+										WHERE EventTypeId = 1 
+											AND ae.EventDateStamp > DATEADD(day, 1, ae.EventDurationEndDate) 
+											AND ae.EventDurationEndDate > '2022-05-23'
+											AND ae.EventDurationEndDate < (SELECT TOP (1) ae.EventDurationEndDate
+															FROM Submission.SubmissionApprovalEvents ae
+															WHERE ae.EventDurationEndDate < GETDATE()
+															ORDER BY ae.EventDurationEndDate DESC)
+										GROUP BY Employee_Id
+									), Failures (Employee_Id, Failures)
+									AS
+									(
+										SELECT DISTINCT Employee_Id, COUNT(DISTINCT EventDurationEndDate) AS Failures
+											FROM Submission.SubmissionApprovalEvents ae
+											WHERE EventTypeId = '1' 
+												AND ae.EventDateStamp > DATEADD(day, 1, ae.EventDurationEndDate) 
+												AND ae.EventDurationEndDate > '2022-05-23'
+											GROUP BY Employee_Id
+									), Totals (Employee_Id, Total)
+									AS
+									(
+										-- Time Sheets per person
+										SELECT ae.Employee_Id, COUNT(DISTINCT EventDurationEndDate)
+											FROM Submission.SubmissionApprovalEvents ae
+											INNER JOIN tbl_Employees emp
+													ON ae.Employee_Id = emp.Employee_ID
+											WHERE emp.IsActive = '1'
+												AND EventTypeId = '1'
+												AND ae.EventDurationEndDate > '2022-05-23'
+											GROUP BY ae.Employee_Id
+									), Rates (Employee_Id, FailureRate)
+									AS
+									(
+										SELECT e.Employee_ID,CAST(((f.Failures * 1.00) / t.Total) AS numeric(10,4)) AS FailureRate
+											FROM tbl_Employees e
+												INNER JOIN Failures f
+													ON e.Employee_Id = f.Employee_ID
+												INNER JOIN Totals t
+													ON e.Employee_ID = t.Employee_Id
+												WHERE e.IsActive = '1'
+									)
+									SELECT e.Employee_ID, e.Fname, e.Lname, f.Failures, mr.MostRecent, r.FailureRate
+										FROM tbl_Employees e
+											INNER JOIN MostRecent mr
+												ON e.Employee_ID = mr.Employee_Id
+											INNER JOIN Failures f
+												ON e.Employee_ID = f.Employee_Id
+											INNER JOIN Rates r
+												ON e.Employee_ID = r.Employee_Id
+											LEFT JOIN Submission.SubmissionApprovalEvents ae
+												ON e.Employee_Id = ae.Employee_ID 
+													AND ae.EventDateStamp < DATEADD(dd, 1, ae.EventDurationEndDate)
+													AND ae.EventDurationEndDate = (SELECT TOP (1) ae.EventDurationEndDate
+																					FROM Submission.SubmissionApprovalEvents ae
+																					WHERE ae.EventDurationEndDate < GETDATE()
+																					ORDER BY ae.EventDurationEndDate DESC)
+													AND ae.EventTypeId = '1'
+										WHERE e.IsActive = '1' 
+												AND ae.EventDateStamp IS NULL 
+												AND e.Employee_ID <> '125' --Exclude Chris Rennix bc he doesn't have any submission events
+										ORDER BY e.Employee_ID;";
 
                 sqlConn.Open();
 
@@ -99,13 +156,22 @@ namespace TimeSlackerApi.Data
                 {
                     while (dr.Read())
                     {
-                        retList.Add(dr.GetString(0));
+						retList.Add(new RecentFail()
+						{
+							EmployeeId = dr.GetInt64(0),
+							FirstName = dr.GetString(1),
+							LastName = dr.GetString(2),
+							TotalFails = dr.GetInt32(3),
+							MostRecent = dr.GetDateTime(4).ToShortDateString(),
+							FailRate = dr.GetDecimal(5)
+						});
                     }
                 }
             }
 
             return retList;
         }
+
         public static (string Name, int SecondsTilFail) GetClosestCall()
         {
             (string Name, int SecondsTilFail) ret = ("", 0);
@@ -130,6 +196,33 @@ namespace TimeSlackerApi.Data
                     {
                         ret.Name = dr.GetString(0);
                         ret.SecondsTilFail = dr.GetInt32(1);
+                    }
+                }
+            }
+
+            return ret;
+        }
+
+        public static (string recentStartDate, string recentEndDate) GetMostRecentPeriod()
+		{ 
+            (string recentStartDate, string recentEndDate) ret = ("", "");
+
+            using (var sqlConn = new SqlConnection(TimeSlackerApiDatabaseConnection.conn))
+            using (var cmd = sqlConn.CreateCommand())
+            {
+                cmd.CommandText = @"SELECT TOP (1) ae.EventDurationStartDate, ae.EventDurationEndDate
+										FROM Submission.SubmissionApprovalEvents ae
+										WHERE ae.EventDurationEndDate < GETDATE()
+										ORDER BY ae.EventDurationEndDate DESC";
+
+                sqlConn.Open();
+
+                using (var dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        ret.recentStartDate = dr.GetDateTime(0).ToString("MM/dd");
+                        ret.recentEndDate = dr.GetDateTime(1).ToString("MM/dd");
                     }
                 }
             }
