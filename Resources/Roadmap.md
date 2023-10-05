@@ -52,6 +52,7 @@
 - Stat roulette/gambling slots
 - Breakdown over past months
 - Past week's failures (display of the latest submission period)
+- Live tickers (days since **condition**)
 
 ### Slacker Achievements
 
@@ -63,6 +64,8 @@
 | **Outlier** | First name equals "Vanessa" or "Kent" |
 | **Veteran** | Existed before timesheet submissions were required |
 | **Predictable** | Most Monday timesheet submissions when Monday is not the end date |
+| **Smarter Not Harder** | Least hours logged in _time period_ |
+| **Employee Of The Month** _or_ **Milking it** | Most hours logged in a month |
 
 ---
 
