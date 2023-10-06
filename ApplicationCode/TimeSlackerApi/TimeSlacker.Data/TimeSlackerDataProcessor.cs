@@ -229,5 +229,54 @@ namespace TimeSlackerApi.Data
 
             return ret;
         }
+
+        public static List<SubmissionPeriod> GetFailsPerPeriod()
+        {
+            var retList = new List<SubmissionPeriod>();
+
+            using (var sqlConn = new SqlConnection(TimeSlackerApiDatabaseConnection.conn))
+            using (var cmd = sqlConn.CreateCommand())
+            {
+                cmd.CommandText = @"-- Fails per submission
+									WITH submissionPeriods (StartDay, EventDurationStartDate, EndDay, EventDurationEndDate)
+									AS
+									(
+										SELECT DISTINCT DATENAME(dw, EventDurationStartDate) AS StartDay, EventDurationStartDate, DATENAME(dw, EventDurationEndDate) AS EndDay, EventDurationEndDate
+											FROM Submission.SubmissionApprovalEvents ae
+											WHERE ae.EventDurationEndDate <= GETDATE()
+									)
+									SELECT DATENAME(dw, sp.EventDurationStartDate) AS StartDay
+											,sp.EventDurationStartDate
+											,DATENAME(dw, sp.EventDurationEndDate) AS EndDay
+											,sp.EventDurationEndDate
+											,COUNT(DISTINCT Employee_Id) AS FailsForPeriod
+										FROM submissionPeriods sp
+											LEFT JOIN Submission.SubmissionApprovalEvents ae
+												ON sp.EventDurationStartDate = ae.EventDurationStartDate
+													AND EventTypeId = 1 
+													AND ae.EventDateStamp > DATEADD(day, 1, ae.EventDurationEndDate)
+										GROUP BY sp.EventDurationStartDate, sp.EventDurationEndDate
+										ORDER BY sp.EventDurationEndDate ASC;";
+
+                sqlConn.Open();
+
+                using (var dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        retList.Add(new SubmissionPeriod()
+                        {
+                            StartDayName = dr.GetString(0),
+                            StartDate = dr.GetDateTime(1),
+                            EndDayName = dr.GetString(2),
+                            EndDate = dr.GetDateTime(3),
+                            TotalFails = dr.GetInt32(4)
+                        });
+                    }
+                }
+            }
+
+            return retList;
+        }
     }
 }

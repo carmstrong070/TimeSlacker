@@ -49,6 +49,21 @@ function getClosestCall() {
     });  
 }
 
+function getFailsOverTime() {
+    $.ajax({
+        url: 'https://localhost:7244/api/TimeSlacker/GetFailsPerPeriod',
+        method: 'GET',
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+            renderFailsOverTime(data);
+        },
+        fail: function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        }
+    });
+}
+
 
 //#region helpers
 

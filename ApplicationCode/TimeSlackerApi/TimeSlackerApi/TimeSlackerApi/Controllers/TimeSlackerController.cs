@@ -40,5 +40,9 @@ namespace TimeSlackerApi.Controllers
         [HttpGet]
         [Route("GetAllFails")]
         public List<PersonFails> GetAllFails() => TimeSlackerDataProcessor.GetAllFails();
+
+        [HttpGet]
+        [Route("GetFailsPerPeriod")]
+        public List<SubmissionPeriod> GetFailsPerPeriod() => TimeSlackerDataProcessor.GetFailsPerPeriod();
     }
 }

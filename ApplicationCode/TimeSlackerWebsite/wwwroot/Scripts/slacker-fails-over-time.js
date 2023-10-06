@@ -1,13 +1,48 @@
 ﻿
-function getFailsOverTime() {
-	var chart = bb.generate({
-		data: {
-			columns: [
-				["data1", 30, 200, 100, 400, 150, 250],
-				["data2", 50, 20, 10, 40, 15, 25]
-			],
-			type: "line", // for ESM specify as: line()
-		},
-		bindto: "#fails-over-time-chart"
-	});
+function renderFailsOverTime(data) {
+    let fails = [];
+    let dates = [];
+
+    data.forEach((period) => {
+        fails.push(period.totalFails);
+        dates.push(period.endDate);
+    });
+
+    var chart = bb.generate({
+        data: {
+            x: "x",
+            json: {
+                Fails: fails,
+                x: dates
+            },
+            type: "line", // for ESM specify as: area()
+            xFormat: "%m-%d-%Y %H:%M"
+        },
+        axis: {
+            x: {
+                tick: {
+                    fit: false,
+                    count: 5
+                },
+                type: "timeseries"
+            }
+        },
+        zoom: {
+            enabled: true, // for ESM specify as: zoom()
+            type: "drag"
+        },
+        tooltip: {
+            format: {
+                title: function (x) {
+                    return d3.timeFormat("%Y-%m-%d")(x);
+                }
+            }
+        },
+        point: {
+            focus: {
+                only: true
+            }
+        },
+        bindto: "#fails-over-time-chart"
+    });
 }
