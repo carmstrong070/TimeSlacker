@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="en" class="h-100">
 <head>
-    <title>ADA Portal</title>
+    <title>Time Slacker</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Content/CSS/bootstrap-slate.min.css">
     <link rel="stylesheet" href="Content/CSS/billboard.min.css" />
     <link rel="stylesheet" href="Content/CSS/svg-with-js.min.css">
-    <link rel="stylesheet" href="Content/CSS/slackerstyle.css">
+    <link rel="stylesheet" href="Content/CSS/slacker.min.css">
 </head>
 <body class="d-flex flex-column h-100">
     <header>
@@ -32,8 +32,11 @@
                         <div class="col d-flex align-items-center">
                             <div>
                                 <h1 class="text-white text-uppercase site-title mb-0" style="font-size: 5rem;">Time Slacker</h1>
-                                <p class="lead text-white bahnizer px-4 px-lg-0" style="font-size: 2rem; margin-top: -10px;">
-                                    Keeping you honest about your failures.
+                                <p class="lead text-white bahnizer" style="font-size: 1.25rem; margin-top: -10px;">
+                                    Keeping you honest about your failures:
+                                </p>
+                                <p class="lead text-white bahnizer" style="font-size: 1.75rem; margin-top: -20px;">
+                                    <strong>1,234</strong> combined failures so far.
                                 </p>
                             </div>
                         </div>
@@ -54,7 +57,7 @@
                         <span id="recentStartDate">10/2</span> &mdash; <span id="recentEndDate">10/8</span>
                     </h3>
                     <hr />
-                    <div id="recentFailsContainer" class="row">
+                    <div id="recent-fails-container" class="row">
                         <div class="col-xxl-3 col-xl-4 col-md-6 d-md-flex align-items-stretch mb-3">
                             <div class="card h-100 w-100 shadow">
                                 <div class="card-body d-md-flex flex-md-column">
@@ -157,7 +160,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
         <!-- INITIAL STAT CARDS -->
@@ -222,6 +225,35 @@
                 </div>
             </div>
         </div>
+
+        <!-- TEST SLACKER RENDER -->
+        <div class="position-relative">
+            <div class="py-5">
+                <div class="container-xl">
+                    <div class="flippable">
+                        <div class="flippable-content">
+                            <div class="flippable-front">
+                                <img src="Content/Images/Employee Cards/vaughnz.jpg" width="300" height="500" class="flippable-front-img" />
+                                <div class="flippable-front-gradient"></div>
+                                <div class="flippable-front-titling">
+                                    <span class="flippable-front-titling-name">Zach Vaughn</span>
+                                    <span class="flippable-front-titling-job">Software Engineer</span>
+                                </div>
+                                <div class="flippable-front-meta">
+                                    <span class="flippable-front-meta-years">11</span>
+                                    <span class="flippable-front-meta-team"><i class="fa-solid fa-faucet"></i></span>
+                                </div>
+                            </div>
+                            <div class="flippable-back" style="background-color:coral">
+                                <img src="Content/Images/Employee Display Pictures/vaughnz.jpg" width="300" height="300" class="rounded-circle" style="width: 160px; height: 160px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="height: 500px"></div>
 
     </main>
 

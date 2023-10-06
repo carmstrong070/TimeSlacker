@@ -1,0 +1,33 @@
+﻿/* ---------------------------------------------- /*
+ * Appearance
+/* ---------------------------------------------- */
+
+.opacity(@opacity) {
+    opacity: @opacity;
+    // IE8 filter
+    @opacity-ie: (@opacity * 100);
+    filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+/* ---------------------------------------------- /*
+ * Utilities
+/* ---------------------------------------------- */
+
+.transform(@transform) {
+    -moz-transform: @transform;
+    -ms-transform: @transform;
+    -o-transform: @transform;
+    -webkit-transform: @transform;
+    transform: @transform;
+}
+
+/* ---------------------------------------------- /*
+ * Transitions
+/* ---------------------------------------------- */
+
+.transition(@transition) {
+    -webkit-transition: @transition;
+    -o-transition: @transition;
+    -moz-transition: @transition;
+    transition: @transition;
+}

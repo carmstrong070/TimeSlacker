@@ -10,7 +10,11 @@ namespace TimeSlackerApi.Data
 
         public TimeSlackerApiDatabaseConnection(IConfiguration config)
         {
+#if OUT_OF_OFFICE
+            conn = config.GetConnectionString("OutOfOfficeConnection");
+#else
             conn = config.GetConnectionString("DefaultConnection");
+#endif
         }
     }
 }

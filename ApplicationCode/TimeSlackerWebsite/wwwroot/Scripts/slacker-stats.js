@@ -9,7 +9,7 @@ function getRecentFails() {
             data.forEach((fail) => {
                 htmlExpression += renderRecentFail(fail);
             });
-            $("#recentFailsContainer").html(htmlExpression);
+            $("#recent-fails-container").html(htmlExpression);
         },
         fail: function (jqXHR, textStatus) {
             alert("Request failed: " + textStatus);
