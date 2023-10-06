@@ -232,7 +232,7 @@ namespace TimeSlackerApi.Data
 
         public static List<SubmissionPeriod> GetFailsPerPeriod()
         {
-            var retList = new List<SubmissionPeriod>();
+            var retList = new SubmissionPeriods();
 
             using (var sqlConn = new SqlConnection(TimeSlackerApiDatabaseConnection.conn))
             using (var cmd = sqlConn.CreateCommand())
@@ -244,6 +244,7 @@ namespace TimeSlackerApi.Data
 										SELECT DISTINCT DATENAME(dw, EventDurationStartDate) AS StartDay, EventDurationStartDate, DATENAME(dw, EventDurationEndDate) AS EndDay, EventDurationEndDate
 											FROM Submission.SubmissionApprovalEvents ae
 											WHERE ae.EventDurationEndDate <= GETDATE()
+											AND ae.EventDurationEndDate > '2022-05-23'
 									)
 									SELECT DATENAME(dw, sp.EventDurationStartDate) AS StartDay
 											,sp.EventDurationStartDate
@@ -264,7 +265,7 @@ namespace TimeSlackerApi.Data
                 {
                     while (dr.Read())
                     {
-                        retList.Add(new SubmissionPeriod()
+                        retList.Periods.Add(new SubmissionPeriod()
                         {
                             StartDayName = dr.GetString(0),
                             StartDate = dr.GetDateTime(1),
@@ -276,7 +277,7 @@ namespace TimeSlackerApi.Data
                 }
             }
 
-            return retList;
+            return retList.CalculateRollingAverages(5);
         }
     }
 }

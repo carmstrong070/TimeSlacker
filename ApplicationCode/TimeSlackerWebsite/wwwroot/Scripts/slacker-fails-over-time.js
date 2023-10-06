@@ -1,10 +1,12 @@
 ﻿
 function renderFailsOverTime(data) {
     let fails = [];
+    let rollingAvg = [];
     let dates = [];
 
     data.forEach((period) => {
         fails.push(period.totalFails);
+        rollingAvg.push(period.rollingAverage);
         dates.push(period.endDate);
     });
 
@@ -13,6 +15,7 @@ function renderFailsOverTime(data) {
             x: "x",
             json: {
                 Fails: fails,
+                "Rolling Average": rollingAvg,
                 x: dates
             },
             type: "line", // for ESM specify as: area()
@@ -22,7 +25,7 @@ function renderFailsOverTime(data) {
             x: {
                 tick: {
                     fit: false,
-                    count: 5
+                    count: 10
                 },
                 type: "timeseries"
             }
