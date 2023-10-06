@@ -203,3 +203,14 @@ body {
   text-align: left;
   font-size: 1.8rem;
 }
+/* ---------------------------------------------- /*
+ * Billboard.js
+/* ---------------------------------------------- */
+.bb-axis tspan,
+.bb-legend text {
+  fill: #fff;
+}
+.bb-axis path,
+.bb-axis line {
+  stroke: #fff;
+}
