@@ -133,9 +133,6 @@ body {
   background-color: #000;
   color: #fff;
 }
-.flippable-back {
-  background-color: #000;
-}
 .flippable-front-img {
   position: absolute;
   top: 0;
@@ -152,35 +149,6 @@ body {
   height: 100%;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0.6) 100%);
 }
-.flippable-front-titling {
-  position: absolute;
-  bottom: 25px;
-  left: 25px;
-  width: 200px;
-  z-index: 2;
-}
-.flippable-front-titling-name {
-  display: block;
-  text-align: left;
-  line-height: 1.4rem;
-  font-size: 1.6rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  text-shadow: 1px 2px 0 #000, 2px 4px 2px rgba(0, 0, 0, 0.5);
-}
-.flippable-front-titling-job {
-  display: block;
-  text-align: left;
-  font-size: 0.9rem;
-  font-weight: 100;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 0 #000;
-}
-.flippable-back {
-  background-color: #000;
-  color: white;
-  transform: rotateY(180deg);
-}
 .flippable-front-meta {
   position: absolute;
   top: 15px;
@@ -192,16 +160,158 @@ body {
 .flippable-front-meta-years {
   display: block;
   float: left;
-  text-align: left;
   font-size: 1.8rem;
   font-weight: 800;
   text-transform: uppercase;
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.6);
 }
 .flippable-front-meta-team {
   display: block;
   float: right;
+}
+.flippable-front-meta-team.fay {
+  margin-right: -10px;
+}
+.flippable-front-titling {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  width: 200px;
   text-align: left;
-  font-size: 1.8rem;
+  z-index: 2;
+}
+.flippable-front-titling-name {
+  display: block;
+  line-height: 1.4rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-shadow: 1px 2px 0 #000, 2px 4px 2px rgba(0, 0, 0, 0.5);
+}
+.flippable-front-titling-job {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  text-shadow: 1px 2px 1px #000;
+}
+.flippable-back {
+  background: linear-gradient(0deg, #ccc 0%, #fff 75%, #ccc 100%);
+  color: #646464;
+  transform: rotateY(180deg);
+}
+.flippable-back-img-container {
+  margin: auto;
+  margin-top: 40px;
+  width: 152px;
+  height: 152px;
+  border: 1px solid #938c2d;
+  border-radius: 50%;
+}
+.flippable-back-img {
+  width: 134px;
+  height: 134px;
+  margin: 8px;
+  border-radius: 50%;
+}
+.flippable-back-meta {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  padding: 0 18px;
+  width: 100%;
+  z-index: 2;
+}
+.flippable-back-meta-years-container {
+  float: left;
+}
+.flippable-back-meta-years {
+  display: block;
+  font-size: 2.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.flippable-back-meta-years-label {
+  display: block;
+  text-align: center;
+  margin-top: -20px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+.flippable-back-meta-team-container {
+  float: right;
+}
+.flippable-back-meta-team-container.fay {
+  margin-right: -15px;
+}
+.flippable-back-meta-team-container.fay .flippable-back-meta-team-label {
+  color: #938c2d;
+}
+.flippable-back-meta-team {
+  display: block;
+}
+.flippable-back-meta-team-label {
+  display: block;
+  text-align: center;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+.flippable-back-titling {
+  margin: auto;
+  margin-top: 20px;
+  width: 200px;
+  text-align: center;
+}
+.flippable-back-titling-name {
+  display: block;
+  color: #938c2d;
+  line-height: 1.4rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.flippable-back-titling-job {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+.flippable-back-stats {
+  text-align: left;
+  padding: 0 25px;
+}
+.flippable-back-stat-container {
+  display: inline-block;
+  margin-right: 25px;
+}
+.flippable-back-stat-container:not(:last-child) {
+  margin-bottom: 10px;
+}
+.flippable-back-stat {
+  color: #616161;
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+.flippable-back-stat-label {
+  margin-top: -10px;
+  color: #969696;
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.flippable-back-achievements-container {
+  text-align: center;
+  padding: 0 25px;
+}
+.flippable-back-achievement {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 2px;
 }
 /* ---------------------------------------------- /*
  * Billboard.js
