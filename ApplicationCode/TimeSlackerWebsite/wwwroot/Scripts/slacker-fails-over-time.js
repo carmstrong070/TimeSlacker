@@ -18,14 +18,14 @@ function renderFailsOverTime(data) {
                 "Rolling Average": rollingAvg,
                 x: dates
             },
-            type: "line", // for ESM specify as: area()
-            xFormat: "%m-%d-%Y %H:%M"
+            type: "line"
         },
         axis: {
             x: {
                 tick: {
                     fit: false,
-                    count: 10
+                    count: 10,
+                    format: "%b %Y"
                 },
                 type: "timeseries"
             }
