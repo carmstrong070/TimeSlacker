@@ -177,7 +177,7 @@ namespace TimeSlackerApi.Data
 													AND ae.EventTypeId = '1'
 										WHERE e.IsActive = '1' 
 												AND ae.EventDateStamp IS NULL 
-												AND e.Employee_ID <> '125' --Exclude Chris Rennix bc he doesn't have any submission events
+												AND e.Employee_ID NOT IN ('125', '134', '50', '103') --Exclude Chris Rennix, Grace Grimsted, Katie Waldron, and Vanessa Nygren
 										ORDER BY e.Employee_ID;";
 
                 sqlConn.Open();
@@ -279,6 +279,7 @@ namespace TimeSlackerApi.Data
 												ON sp.EventDurationStartDate = ae.EventDurationStartDate
 													AND EventTypeId = 1 
 													AND ae.EventDateStamp > DATEADD(day, 1, ae.EventDurationEndDate)
+													AND ae.Employee_Id NOT IN ('125', '134', '50', '103') --Exclude Chris Rennix, Grace Grimsted, Katie Waldron, and Vanessa Nygren
 										GROUP BY sp.EventDurationStartDate, sp.EventDurationEndDate
 										ORDER BY sp.EventDurationEndDate ASC;";
 
