@@ -9,6 +9,37 @@ namespace TimeSlackerApi.Data
 {
     public static class TimeSlackerDataProcessor
     {
+		public static int GetTotalFails()
+		{
+			int ret = 0;
+            using (var sqlConn = new SqlConnection(TimeSlackerApiDatabaseConnection.conn))
+            using (var cmd = sqlConn.CreateCommand())
+            {
+                cmd.CommandText = @"SELECT COUNT(*)
+										FROM
+										(
+											SELECT MAX(ae.EventId) AS EventId
+												FROM Submission.SubmissionApprovalEvents ae
+													INNER JOIN tbl_Employees e
+														ON ae.Employee_Id = e.Employee_ID
+												WHERE EventTypeId = '1'
+													AND e.IsActive = '1'
+													AND ae.EventDateStamp > DATEADD(day, 1, ae.EventDurationEndDate)
+													AND ae.EventDurationEndDate > '2022-05-23'
+												GROUP BY EventDurationEndDate, ae.Employee_Id
+										) x;";
+
+                sqlConn.Open();
+
+                using var dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    ret = dr.GetInt32(0);
+                }
+            }
+
+            return ret;
+        }
 
         public static List<PersonFails> GetAllFails() 
         { 
@@ -55,20 +86,18 @@ namespace TimeSlackerApi.Data
 
                 sqlConn.Open();
 
-                using (var dr = cmd.ExecuteReader())
+                using var dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    while (dr.Read())
+                    retList.Add(new PersonFails()
                     {
-                        retList.Add(new PersonFails()
-                        {
-                            EmployeeId = dr.GetInt64(0),
-                            FirstName = dr.GetString(1),
-                            LastName = dr.GetString(2),
-                            TotalFails = dr.GetInt32(3),
-                            TotalTimesheets = dr.GetInt32(4),
-                            FailRate = dr.GetDecimal(5)
-                        });
-                    }
+                        EmployeeId = dr.GetInt64(0),
+                        FirstName = dr.GetString(1),
+                        LastName = dr.GetString(2),
+                        TotalFails = dr.GetInt32(3),
+                        TotalTimesheets = dr.GetInt32(4),
+                        FailRate = dr.GetDecimal(5)
+                    });
                 }
             }
 
@@ -143,6 +172,7 @@ namespace TimeSlackerApi.Data
 													AND ae.EventDurationEndDate = (SELECT TOP (1) ae.EventDurationEndDate
 																					FROM Submission.SubmissionApprovalEvents ae
 																					WHERE ae.EventDurationEndDate < GETDATE()
+																						AND GETDATE() > DATEADD(day, 1, ae.EventDurationEndDate) 
 																					ORDER BY ae.EventDurationEndDate DESC)
 													AND ae.EventTypeId = '1'
 										WHERE e.IsActive = '1' 
@@ -152,21 +182,17 @@ namespace TimeSlackerApi.Data
 
                 sqlConn.Open();
 
-                using (var dr = cmd.ExecuteReader())
-                {
-                    while (dr.Read())
+                using var dr = cmd.ExecuteReader();
+                while (dr.Read())
+                    retList.Add(new RecentFail()
                     {
-						retList.Add(new RecentFail()
-						{
-							EmployeeId = dr.GetInt64(0),
-							FirstName = dr.GetString(1),
-							LastName = dr.GetString(2),
-							TotalFails = dr.GetInt32(3),
-							MostRecent = dr.GetDateTime(4).ToShortDateString(),
-							FailRate = dr.GetDecimal(5)
-						});
-                    }
-                }
+                        EmployeeId = dr.GetInt64(0),
+                        FirstName = dr.GetString(1),
+                        LastName = dr.GetString(2),
+                        TotalFails = dr.GetInt32(3),
+                        MostRecent = dr.GetDateTime(4).ToShortDateString(),
+                        FailRate = dr.GetDecimal(5)
+                    });
             }
 
             return retList;
@@ -190,13 +216,11 @@ namespace TimeSlackerApi.Data
 
                 sqlConn.Open();
 
-                using (var dr = cmd.ExecuteReader())
+                using var dr = cmd.ExecuteReader();
+                if (dr.Read())
                 {
-                    if (dr.Read())
-                    {
-                        ret.Name = dr.GetString(0);
-                        ret.SecondsTilFail = dr.GetInt32(1);
-                    }
+                    ret.Name = dr.GetString(0);
+                    ret.SecondsTilFail = dr.GetInt32(1);
                 }
             }
 
@@ -212,18 +236,16 @@ namespace TimeSlackerApi.Data
             {
                 cmd.CommandText = @"SELECT TOP (1) ae.EventDurationStartDate, ae.EventDurationEndDate
 										FROM Submission.SubmissionApprovalEvents ae
-										WHERE ae.EventDurationEndDate < GETDATE()
+										WHERE DATEADD(day, 1, ae.EventDurationEndDate) < GETDATE()
 										ORDER BY ae.EventDurationEndDate DESC";
 
                 sqlConn.Open();
 
-                using (var dr = cmd.ExecuteReader())
+                using var dr = cmd.ExecuteReader();
+                if (dr.Read())
                 {
-                    if (dr.Read())
-                    {
-                        ret.recentStartDate = dr.GetDateTime(0).ToString("MM/dd");
-                        ret.recentEndDate = dr.GetDateTime(1).ToString("MM/dd");
-                    }
+                    ret.recentStartDate = dr.GetDateTime(0).ToString("MM/dd");
+                    ret.recentEndDate = dr.GetDateTime(1).ToString("MM/dd");
                 }
             }
 
@@ -245,6 +267,7 @@ namespace TimeSlackerApi.Data
 											FROM Submission.SubmissionApprovalEvents ae
 											WHERE ae.EventDurationEndDate <= GETDATE()
 											AND ae.EventDurationEndDate > '2022-05-23'
+											AND GETDATE() > DATEADD(day, 1, ae.EventDurationEndDate)
 									)
 									SELECT DATENAME(dw, sp.EventDurationStartDate) AS StartDay
 											,sp.EventDurationStartDate
@@ -261,19 +284,17 @@ namespace TimeSlackerApi.Data
 
                 sqlConn.Open();
 
-                using (var dr = cmd.ExecuteReader())
+                using var dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    while (dr.Read())
+                    retList.Periods.Add(new SubmissionPeriod()
                     {
-                        retList.Periods.Add(new SubmissionPeriod()
-                        {
-                            StartDayName = dr.GetString(0),
-                            StartDate = dr.GetDateTime(1),
-                            EndDayName = dr.GetString(2),
-                            EndDate = dr.GetDateTime(3),
-                            TotalFails = dr.GetInt32(4)
-                        });
-                    }
+                        StartDayName = dr.GetString(0),
+                        StartDate = dr.GetDateTime(1),
+                        EndDayName = dr.GetString(2),
+                        EndDate = dr.GetDateTime(3),
+                        TotalFails = dr.GetInt32(4)
+                    });
                 }
             }
 

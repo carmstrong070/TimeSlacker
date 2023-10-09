@@ -9,11 +9,14 @@ namespace TimeSlackerApi.Controllers
     [ApiController]
     public class TimeSlackerController : ControllerBase
     {
-
         public TimeSlackerController(IConfiguration config)
         {
             TimeSlackerApiDatabaseConnection conn = new TimeSlackerApiDatabaseConnection(config);
         }
+
+        [HttpGet]
+        [Route("GetTotalFails")]
+        public int GetTotalFails() => TimeSlackerDataProcessor.GetTotalFails();
 
         [HttpGet]
         [Route("GetMostRecentPeriod")]

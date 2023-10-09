@@ -1,3 +1,18 @@
+function getTotalFails() {
+    $.ajax({
+        url: 'https://localhost:7244/api/TimeSlacker/GetTotalFails',
+        method: 'GET',
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+            $("#lbl-total-fails").html(data);
+        },
+        fail: function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        }
+    });
+}
+
 function getRecentFails() {
     $.ajax({
         url: 'https://localhost:7244/api/TimeSlacker/GetRecentFails',
@@ -14,7 +29,7 @@ function getRecentFails() {
         fail: function (jqXHR, textStatus) {
             alert("Request failed: " + textStatus);
         }
-    });    
+    });
 }
 
 function getMostRecentPeriod() {
