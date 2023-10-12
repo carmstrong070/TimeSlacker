@@ -58,8 +58,8 @@
         <!-- LATEST FAILURES -->
         <div class="position-relative">
             <div style="background: none">
-                <div class="bg-dot-grid">
-                    <div class="video-container">
+                <div id="recent-fails-container" class="bg-dot-grid">
+                    <div id="compliance-video" class="video-container">
                         <video class="video-player" autoplay="autoplay" muted="muted" loop="loop" poster="Content/Videos/meat-loop.jpg">
                             <source src="Content/Videos/meat-loop.mp4" type="video/mp4" />
                         </video>
@@ -70,11 +70,13 @@
                             <h3 class="text-center fw-light bahnizer">
                                 <span id="recentStartDate">10/2</span> &mdash; <span id="recentEndDate">10/8</span>
                             </h3>
-                            <div class="compliance-award-container">
-                                <i class="fa-solid fa-award compliance-award"></i>
+                            <div id="compliance-container">
+                                <div class="compliance-award-container">
+                                    <i class="fa-solid fa-award compliance-award"></i>
+                                </div>
+                                <h2 class="display-1 text-center text-uppercase text-white bahnizer"><strong>100%</strong> compliance</h2>
                             </div>
-                            <h2 class="display-1 text-center text-uppercase text-white bahnizer"><strong>100%</strong> compliance</h2>
-                            <div id="recent-fails-container" class="row">
+                            <div id="recent-fails-display" class="row">
 
                             </div>
                         </div>
