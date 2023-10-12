@@ -9,36 +9,28 @@ namespace TimeSlackerApi.Controllers
     [ApiController]
     public class TimeSlackerController : ControllerBase
     {
+        #region ConnectionString
         public TimeSlackerController(IConfiguration config)
         {
             TimeSlackerApiDatabaseConnection conn = new TimeSlackerApiDatabaseConnection(config);
         }
+        #endregion
 
         [HttpGet]
         [Route("GetTotalFails")]
         public int GetTotalFails() => TimeSlackerDataProcessor.GetTotalFails();
 
         [HttpGet]
-        [Route("GetMostRecentPeriod")]
-        public object GetMostRecentPeriod()
-        {
-            var ret = TimeSlackerDataProcessor.GetMostRecentPeriod();
-
-            return new { recentStartDate = ret.recentStartDate, recentEndDate = ret.recentEndDate };
-        }
-
-        [HttpGet]
         [Route("GetRecentFails")]
         public List<RecentFail> GetRecentFails() => TimeSlackerDataProcessor.GetRecentFails();
 
         [HttpGet]
-        [Route("GetClosestCall")]
-        public object GetClosestCall()
-        {
-            var ret = TimeSlackerDataProcessor.GetClosestCall();
+        [Route("GetMostRecentPeriod")]
+        public TimePeriod GetMostRecentPeriod() => TimeSlackerDataProcessor.GetMostRecentPeriod();
 
-            return new { Name = ret.Name, SecondsTilFail = ret.SecondsTilFail };
-        }
+        [HttpGet]
+        [Route("GetClosestCall")]
+        public CloseCall GetClosestCall() => TimeSlackerDataProcessor.GetClosestCall();
 
         [HttpGet]
         [Route("GetAllFails")]

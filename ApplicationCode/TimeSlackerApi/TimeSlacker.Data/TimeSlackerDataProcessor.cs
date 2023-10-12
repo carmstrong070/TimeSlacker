@@ -198,14 +198,14 @@ namespace TimeSlackerApi.Data
             return retList;
         }
 
-        public static (string Name, int SecondsTilFail) GetClosestCall()
+        public static CloseCall GetClosestCall()
         {
-            (string Name, int SecondsTilFail) ret = ("", 0);
+            var ret = new CloseCall();
 
             using (var sqlConn = new SqlConnection(TimeSlackerApiDatabaseConnection.conn))
             using (var cmd = sqlConn.CreateCommand())
             {
-                cmd.CommandText = @"SELECT TOP (1) e.Fname + ' ' + e.Lname, DATEDIFF(s, EventDateStamp, DATEADD(dd, 1,  CONVERT(datetime, ae.EventDurationEndDate))) AS SecondsTilFail
+                cmd.CommandText = @"SELECT TOP (1) e.Fname + ' ' + e.Lname, DATEDIFF(s, EventDateStamp, DATEADD(dd, 1,  CONVERT(datetime, ae.EventDurationEndDate))) AS SecondsTilFail, ae.EventDurationEndDate
 	                                    FROM Submission.SubmissionApprovalEvents ae
 		                                    INNER JOIN tbl_Employees e
 			                                    ON ae.Employee_Id = e.Employee_ID
@@ -221,15 +221,16 @@ namespace TimeSlackerApi.Data
                 {
                     ret.Name = dr.GetString(0);
                     ret.SecondsTilFail = dr.GetInt32(1);
+                    ret.CloseCallDate = dr.GetDateTime(2);
                 }
             }
 
             return ret;
         }
 
-        public static (string recentStartDate, string recentEndDate) GetMostRecentPeriod()
+        public static TimePeriod GetMostRecentPeriod()
 		{ 
-            (string recentStartDate, string recentEndDate) ret = ("", "");
+            var ret = new TimePeriod();
 
             using (var sqlConn = new SqlConnection(TimeSlackerApiDatabaseConnection.conn))
             using (var cmd = sqlConn.CreateCommand())
@@ -244,8 +245,8 @@ namespace TimeSlackerApi.Data
                 using var dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    ret.recentStartDate = dr.GetDateTime(0).ToString("MM/dd");
-                    ret.recentEndDate = dr.GetDateTime(1).ToString("MM/dd");
+                    ret.StartDate = dr.GetDateTime(0).ToString("MM/dd");
+                    ret.EndDate = dr.GetDateTime(1).ToString("MM/dd");
                 }
             }
 

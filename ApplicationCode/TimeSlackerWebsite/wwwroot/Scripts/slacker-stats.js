@@ -39,8 +39,8 @@ function getMostRecentPeriod() {
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
-            $("#recentStartDate").html(data.recentStartDate);
-            $("#recentEndDate").html(data.recentEndDate);
+            $("#recentStartDate").html(data.startDate);
+            $("#recentEndDate").html(data.endDate);
         },
         fail: function (jqXHR, textStatus) {
             alert("Request failed: " + textStatus);
@@ -57,6 +57,7 @@ function getClosestCall() {
         success: function (data) {
             $("#lblClosestCallName").html(data.name);
             $("#lblClosestCallTime").html(data.secondsTilFail);
+            $("#lblClosestCallDate").html(new Date(data.closeCallDate).toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" }));
         },
         fail: function (jqXHR, textStatus) {
             alert("Request failed: " + textStatus);
