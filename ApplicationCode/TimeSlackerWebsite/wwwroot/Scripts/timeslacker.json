@@ -1,362 +1,407 @@
 [
   {
-    "EmployeeId": 103,
-    "FirstName": "Vanessa",
-    "LastName": "Nygren",
-    "TotalFailures": 55,
-    "TotalSubmissions": 71,
-    "FailureRate": 0.7746
-  },
-  {
-    "EmployeeId": 50,
-    "FirstName": "Katie",
+    "EmployeeId": 49,
+    "FirstName": "Chris",
     "LastName": "Waldron",
-    "TotalFailures": 46,
-    "TotalSubmissions": 88,
-    "FailureRate": 0.5227
-  },
-  {
-    "EmployeeId": 144,
-    "FirstName": "Collin",
-    "LastName": "Savunen",
-    "TotalFailures": 37,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.3663
-  },
-  {
-    "EmployeeId": 131,
-    "FirstName": "Kelsey",
-    "LastName": "Bonnicksen",
-    "TotalFailures": 36,
-    "TotalSubmissions": 100,
-    "FailureRate": 0.36
-  },
-  {
-    "EmployeeId": 127,
-    "FirstName": "Hannah",
-    "LastName": "Morse",
-    "TotalFailures": 30,
-    "TotalSubmissions": 98,
-    "FailureRate": 0.3061
+    "StartDate": "1993-01-01",
+    "Team": "Environmental",
+    "Title": "CEO, President",
+    "Achievements": ""
   },
   {
     "EmployeeId": 48,
     "FirstName": "Tony",
     "LastName": "Shimoji",
-    "TotalFailures": 30,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.297
-  },
-  {
-    "EmployeeId": 120,
-    "FirstName": "Melisa",
-    "LastName": "Kegans",
-    "TotalFailures": 27,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.2673
-  },
-  {
-    "EmployeeId": 159,
-    "FirstName": "Autumn",
-    "LastName": "Lavender",
-    "TotalFailures": 27,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.2673
-  },
-  {
-    "EmployeeId": 154,
-    "FirstName": "Ann-Jasmin",
-    "LastName": "Whitmore",
-    "TotalFailures": 23,
-    "TotalSubmissions": 100,
-    "FailureRate": 0.23
-  },
-  {
-    "EmployeeId": 135,
-    "FirstName": "Avery",
-    "LastName": "Rosenbalm",
-    "TotalFailures": 19,
-    "TotalSubmissions": 100,
-    "FailureRate": 0.19
-  },
-  {
-    "EmployeeId": 57,
-    "FirstName": "Brad",
-    "LastName": "Grimsted",
-    "TotalFailures": 19,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1881
-  },
-  {
-    "EmployeeId": 133,
-    "FirstName": "Nathan",
-    "LastName": "Starr",
-    "TotalFailures": 18,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1782
-  },
-  {
-    "EmployeeId": 158,
-    "FirstName": "Carol Ann",
-    "LastName": "Low",
-    "TotalFailures": 18,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1782
-  },
-  {
-    "EmployeeId": 170,
-    "FirstName": "Christian",
-    "LastName": "Oakley",
-    "TotalFailures": 17,
-    "TotalSubmissions": 36,
-    "FailureRate": 0.4722
-  },
-  {
-    "EmployeeId": 129,
-    "FirstName": "Stephanie",
-    "LastName": "Herrera",
-    "TotalFailures": 17,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1683
-  },
-  {
-    "EmployeeId": 49,
-    "FirstName": "Chris",
-    "LastName": "Waldron",
-    "TotalFailures": 17,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1683
-  },
-  {
-    "EmployeeId": 126,
-    "FirstName": "Christian",
-    "LastName": "Armstrong",
-    "TotalFailures": 16,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1584
-  },
-  {
-    "EmployeeId": 56,
-    "FirstName": "Eric",
-    "LastName": "Grimsted",
-    "TotalFailures": 15,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1485
-  },
-  {
-    "EmployeeId": 140,
-    "FirstName": "Justin",
-    "LastName": "Yim",
-    "TotalFailures": 15,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1485
-  },
-  {
-    "EmployeeId": 157,
-    "FirstName": "Peter",
-    "LastName": "Cadero-Smith",
-    "TotalFailures": 14,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1386
-  },
-  {
-    "EmployeeId": 96,
-    "FirstName": "Zach",
-    "LastName": "Vaughn",
-    "TotalFailures": 14,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1386
+    "StartDate": "2001-08-11",
+    "Team": "Dev Team",
+    "Title": "Principle Software Engineer",
+    "Achievements": ""
   },
   {
     "EmployeeId": 58,
     "FirstName": "Kevin",
     "LastName": "Gallagher",
-    "TotalFailures": 13,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1287
+    "StartDate": "2011-12-04",
+    "Team": "Environmental",
+    "Title": "Senior Project Manager",
+    "Achievements": ""
   },
   {
-    "EmployeeId": 139,
-    "FirstName": "Robert",
-    "LastName": "Shields",
-    "TotalFailures": 13,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1287
-  },
-  {
-    "EmployeeId": 150,
-    "FirstName": "Daniel",
-    "LastName": "Ramirez",
-    "TotalFailures": 12,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1188
-  },
-  {
-    "EmployeeId": 128,
-    "FirstName": "Casey",
-    "LastName": "Gruse",
-    "TotalFailures": 12,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1188
-  },
-  {
-    "EmployeeId": 155,
-    "FirstName": "Timothy",
-    "LastName": "Busacker",
-    "TotalFailures": 11,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.1089
-  },
-  {
-    "EmployeeId": 169,
-    "FirstName": "Kriston",
-    "LastName": "Trevino",
-    "TotalFailures": 10,
-    "TotalSubmissions": 36,
-    "FailureRate": 0.2778
-  },
-  {
-    "EmployeeId": 156,
-    "FirstName": "Ryder",
-    "LastName": "Deback",
-    "TotalFailures": 10,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.099
-  },
-  {
-    "EmployeeId": 119,
-    "FirstName": "Joel",
-    "LastName": "Hecker",
-    "TotalFailures": 10,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.099
-  },
-  {
-    "EmployeeId": 73,
-    "FirstName": "Angela",
-    "LastName": "Noyen",
-    "TotalFailures": 10,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.099
-  },
-  {
-    "EmployeeId": 168,
-    "FirstName": "Katelyn",
-    "LastName": "Griffin",
-    "TotalFailures": 9,
-    "TotalSubmissions": 37,
-    "FailureRate": 0.2432
-  },
-  {
-    "EmployeeId": 164,
-    "FirstName": "Sarah",
-    "LastName": "Harlan",
-    "TotalFailures": 9,
-    "TotalSubmissions": 91,
-    "FailureRate": 0.0989
-  },
-  {
-    "EmployeeId": 161,
-    "FirstName": "Michael",
-    "LastName": "Kurkov",
-    "TotalFailures": 9,
-    "TotalSubmissions": 94,
-    "FailureRate": 0.0957
+    "EmployeeId": 57,
+    "FirstName": "Brad",
+    "LastName": "Grimsted",
+    "StartDate": "1993-01-01",
+    "Team": "Environmental",
+    "Title": "Vice-President",
+    "Achievements": ""
   },
   {
     "EmployeeId": 62,
     "FirstName": "Troy",
     "LastName": "Bussey",
-    "TotalFailures": 9,
-    "TotalSubmissions": 100,
-    "FailureRate": 0.09
+    "StartDate": "2011-12-06",
+    "Team": "Environmental",
+    "Title": "Principle Engineer",
+    "Achievements": ""
   },
   {
-    "EmployeeId": 146,
-    "FirstName": "Jemin",
-    "LastName": "Kang",
-    "TotalFailures": 9,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.0891
+    "EmployeeId": 56,
+    "FirstName": "Eric",
+    "LastName": "Grimsted",
+    "StartDate": "2011-12-12",
+    "Team": "Fay",
+    "Title": "Principle Software Engineer",
+    "Achievements": ""
   },
   {
-    "EmployeeId": 163,
-    "FirstName": "Jose",
-    "LastName": "Mejia",
-    "TotalFailures": 8,
-    "TotalSubmissions": 89,
-    "FailureRate": 0.0899
+    "EmployeeId": 73,
+    "FirstName": "Angela",
+    "LastName": "Noyen",
+    "StartDate": "2011-12-26",
+    "Team": "Fay",
+    "Title": "Senior Project Manager",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 50,
+    "FirstName": "Katie",
+    "LastName": "Waldron",
+    "StartDate": "2012-01-02",
+    "Team": "Office",
+    "Title": "CFO",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 96,
+    "FirstName": "Zach",
+    "LastName": "Vaughn",
+    "StartDate": "2012-11-26",
+    "Team": "Fay",
+    "Title": "Software Engineer, IT",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 103,
+    "FirstName": "Vanessa",
+    "LastName": "Nygren",
+    "StartDate": "2013-05-20",
+    "Team": "Environmental",
+    "Title": "Staff Scientist",
+    "Achievements": ""
   },
   {
     "EmployeeId": 105,
     "FirstName": "Jahrel",
     "LastName": "Balon",
-    "TotalFailures": 8,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.0792
+    "StartDate": "2014-06-09",
+    "Team": "Dev Team",
+    "Title": "Software Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 120,
+    "FirstName": "Melisa",
+    "LastName": "Kegans",
+    "StartDate": "2018-05-16",
+    "Team": "Environmental",
+    "Title": "Project Scientist",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 119,
+    "FirstName": "Joel",
+    "LastName": "Hecker",
+    "StartDate": "2018-05-29",
+    "Team": "Environmental",
+    "Title": "Senior Project Manager",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 126,
+    "FirstName": "Christian",
+    "LastName": "Armstrong",
+    "StartDate": "2019-01-07",
+    "Team": "Dev Team",
+    "Title": "Staff Software Engineer",
+    "Achievements": ""
   },
   {
     "EmployeeId": 125,
     "FirstName": "Chris",
     "LastName": "Rennix",
-    "TotalFailures": 7,
-    "TotalSubmissions": 8,
-    "FailureRate": 0.875
+    "StartDate": "2019-01-24",
+    "Team": "Environmental",
+    "Title": "Principal Scientist",
+    "Achievements": ""
   },
   {
-    "EmployeeId": 148,
-    "FirstName": "Thom",
-    "LastName": "Barrett",
-    "TotalFailures": 7,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.0693
+    "EmployeeId": 127,
+    "FirstName": "Hannah",
+    "LastName": "Morse",
+    "StartDate": "2019-05-13",
+    "Team": "Environmental",
+    "Title": "Project Engineer",
+    "Achievements": ""
   },
   {
-    "EmployeeId": 151,
-    "FirstName": "Ruth",
-    "LastName": "Stevenson",
-    "TotalFailures": 7,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.0693
+    "EmployeeId": 128,
+    "FirstName": "Casey",
+    "LastName": "Gruse",
+    "StartDate": "2019-05-28",
+    "Team": "Dev Team",
+    "Title": "Staff Software Engineer",
+    "Achievements": ""
   },
   {
-    "EmployeeId": 149,
-    "FirstName": "Jacob",
-    "LastName": "Gjerstad",
-    "TotalFailures": 5,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.0495
+    "EmployeeId": 129,
+    "FirstName": "Stephanie",
+    "LastName": "Herrera",
+    "StartDate": "2019-07-08",
+    "Team": "Fay",
+    "Title": "Project Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 131,
+    "FirstName": "Kelsey",
+    "LastName": "Bonnicksen",
+    "StartDate": "2019-11-04",
+    "Team": "Fay",
+    "Title": "Staff Software Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 133,
+    "FirstName": "Nathan",
+    "LastName": "Starr",
+    "StartDate": "2020-01-27",
+    "Team": "Environmental",
+    "Title": "Senior Project Manager",
+    "Achievements": ""
   },
   {
     "EmployeeId": 134,
     "FirstName": "Grace",
     "LastName": "Grimsted",
-    "TotalFailures": 4,
-    "TotalSubmissions": 5,
-    "FailureRate": 0.8
+    "StartDate": "2020-03-18",
+    "Team": "Office",
+    "Title": "Intern",
+    "Achievements": ""
   },
   {
-    "EmployeeId": 166,
-    "FirstName": "Katelin",
-    "LastName": "Mallory",
-    "TotalFailures": 4,
-    "TotalSubmissions": 71,
-    "FailureRate": 0.0563
+    "EmployeeId": 135,
+    "FirstName": "Avery",
+    "LastName": "Rosenbalm",
+    "StartDate": "2020-10-19",
+    "Team": "Environmental",
+    "Title": "Staff Scientist",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 139,
+    "FirstName": "Robert",
+    "LastName": "Shields",
+    "StartDate": "2021-01-11",
+    "Team": "Fay",
+    "Title": "Staff Software Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 140,
+    "FirstName": "Justin",
+    "LastName": "Yim",
+    "StartDate": "2021-01-18",
+    "Team": "Fay",
+    "Title": "Staff Software Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 144,
+    "FirstName": "Collin",
+    "LastName": "Savunen",
+    "StartDate": "2021-08-16",
+    "Team": "Fay",
+    "Title": "Staff Software Engineer",
+    "Achievements": ""
   },
   {
     "EmployeeId": 143,
     "FirstName": "James",
     "LastName": "Witt",
-    "TotalFailures": 3,
-    "TotalSubmissions": 101,
-    "FailureRate": 0.0297
+    "StartDate": "2021-08-18",
+    "Team": "Fay",
+    "Title": "Staff Software Engineer, IT",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 146,
+    "FirstName": "Jemin",
+    "LastName": "Kang",
+    "StartDate": "2021-10-25",
+    "Team": "Environmental",
+    "Title": "Staff Scientist",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 148,
+    "FirstName": "Thom",
+    "LastName": "Barrett",
+    "StartDate": "2021-11-08",
+    "Team": "Dev Team",
+    "Title": "Staff Software Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 149,
+    "FirstName": "Jacob",
+    "LastName": "Gjerstad",
+    "StartDate": "2021-11-08",
+    "Team": "Dev Team",
+    "Title": "Staff Software Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 150,
+    "FirstName": "Daniel",
+    "LastName": "Ramirez",
+    "StartDate": "2021-11-08",
+    "Team": "Dev Team",
+    "Title": "Staff Software Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 151,
+    "FirstName": "Ruth",
+    "LastName": "Stevenson",
+    "StartDate": "2021-11-22",
+    "Team": "Office",
+    "Title": "Administrative Assistant",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 155,
+    "FirstName": "Timothy",
+    "LastName": "Busacker",
+    "StartDate": "2022-02-28",
+    "Team": "Fay",
+    "Title": "Staff Software Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 156,
+    "FirstName": "Ryder",
+    "LastName": "Deback",
+    "StartDate": "2022-02-28",
+    "Team": "Fay",
+    "Title": "Staff Software Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 157,
+    "FirstName": "Peter",
+    "LastName": "Cadero-Smith",
+    "StartDate": "2022-02-28",
+    "Team": "Fay",
+    "Title": "Staff Software Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 158,
+    "FirstName": "Carol Ann",
+    "LastName": "Low",
+    "StartDate": "2022-03-14",
+    "Team": "Office",
+    "Title": "Chief Accountant",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 159,
+    "FirstName": "Autumn",
+    "LastName": "Lavender",
+    "StartDate": "2022-05-23",
+    "Team": "Fay",
+    "Title": "Project Coordinator",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 161,
+    "FirstName": "Michael",
+    "LastName": "Kurkov",
+    "StartDate": "2022-06-29",
+    "Team": "Environmental",
+    "Title": "Staff Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 164,
+    "FirstName": "Sarah",
+    "LastName": "Harlan",
+    "StartDate": "2022-07-11",
+    "Team": "Fay",
+    "Title": "Field Tech, Data Analyst II",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 163,
+    "FirstName": "Jose",
+    "LastName": "Mejia",
+    "StartDate": "2022-07-18",
+    "Team": "Fay",
+    "Title": "Field Tech, Data Analyst II",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 166,
+    "FirstName": "Katelin",
+    "LastName": "Mallory",
+    "StartDate": "2022-10-17",
+    "Team": "Fay",
+    "Title": "Project Coordinator",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 168,
+    "FirstName": "Katelyn",
+    "LastName": "Griffin",
+    "StartDate": "2023-04-03",
+    "Team": "Fay",
+    "Title": "Field Tech, Data Analyst II",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 169,
+    "FirstName": "Kriston",
+    "LastName": "Trevino",
+    "StartDate": "2023-04-03",
+    "Team": "Fay",
+    "Title": "Field Tech, Data Analyst II",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 170,
+    "FirstName": "Christian",
+    "LastName": "Oakley",
+    "StartDate": "2023-04-10",
+    "Team": "Environmental",
+    "Title": "Staff Scientist",
+    "Achievements": ""
   },
   {
     "EmployeeId": 173,
     "FirstName": "Kent",
     "LastName": "Ishida",
-    "TotalFailures": 1,
-    "TotalSubmissions": 11,
-    "FailureRate": 0.0909
+    "StartDate": "2023-08-15",
+    "Team": "Environmental",
+    "Title": "Staff Engineer",
+    "Achievements": ""
+  },
+  {
+    "EmployeeId": 177,
+    "FirstName": "Avalon",
+    "LastName": "Kragness",
+    "StartDate": "2023-10-09",
+    "Team": "Environmental",
+    "Title": "Project Coordinator",
+    "Achievements": ""
   }
 ]
