@@ -39,20 +39,20 @@
 
 ### Statistics
 
-- Worst streak
-- Best streak
-- Close calls
-- Top 3 most failures across the company
-- Aggregate stats grouped by team (Dev, Fay, Env)
+- [ ] Worst streak
+- [ ] Best streak
+- [ ] Close calls
+- [ ] Top 3 most failures across the company
+- [ ] Aggregate stats grouped by team (Dev, Fay, Env)
 
 ### Visualizations
 
-- Slacker vs slacker comparison
-- Slacker personal profile cards
-- Stat roulette/gambling slots
-- Breakdown over past months
-- Past week's failures (display of the latest submission period)
-- Live tickers (days since **condition**)
+- [ ] Slacker vs slacker comparison
+- [ ] Slacker personal profile cards
+- [ ] Stat roulette/gambling slots
+- [x] Breakdown over past months
+- [x] Past week's failures (display of the latest submission period)
+- [ ] Live tickers (days since **condition**)
 
 ### Slacker Achievements
 
@@ -63,7 +63,7 @@
 | **By The Book** | All Mon-Fri timesheet submissions occur between 6am and 6pm |
 | **Outlier** | First name equals "Vanessa" or "Kent" |
 | **Veteran** | Existed before timesheet submissions were required |
-| **Predictable** | Most Monday timesheet submissions when Monday is not the end date |
+| **Predictable** | Monday timesheet submission when Monday is not the end date |
 | **Smarter Not Harder** | Least hours logged in _time period_ |
 | **Employee Of The Month** _or_ **Milking it** | Most hours logged in a month |
 | **All by myself** | Only person to report time to a specific WO# |
@@ -74,5 +74,5 @@
 
 ![Nate H](https://cdn.discordapp.com/attachments/609151714297249823/1085227784068141086/20230308215842_1.jpg)
 
-> Yeah, get me smashing the shit out of this bitch.
+> Yeah, get me smashing the shit out of this bitch.\
 > \- Nate H
