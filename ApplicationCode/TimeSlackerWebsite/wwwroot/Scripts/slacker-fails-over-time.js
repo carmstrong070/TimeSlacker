@@ -6,7 +6,7 @@ function renderFailsOverTime(data) {
 
     data.forEach((period) => {
         fails.push(period.totalFails);
-        rollingAvg.push(period.rollingAverage);
+        rollingAvg.push(Number(period.rollingAverage).toLocaleString(undefined, {maximumFractionDigits: 2}));
         dates.push(period.endDate);
     });
 
