@@ -19,3 +19,44 @@
     overflow: hidden;
     z-index: -1;
 }
+
+.video-player {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+}
+
+@keyframes tilt-rotating {
+    from {
+        -ms-transform: rotate(-12deg);
+        -moz-transform: rotate(-12deg);
+        -webkit-transform: rotate(-12deg);
+        -o-transform: rotate(-12deg);
+        transform: rotate(-12deg);
+    }
+
+    to {
+        -ms-transform: rotate(12deg);
+        -moz-transform: rotate(12deg);
+        -webkit-transform: rotate(12deg);
+        -o-transform: rotate(12deg);
+        transform: rotate(12deg);
+    }
+}
+
+.compliance-award-container {
+    margin: 5rem auto 2rem;
+    color: #fff;
+    text-align: center;
+}
+
+.compliance-award {
+    font-size: 12rem;
+    animation: tilt-rotating 2s alternate ease-in-out infinite;
+}

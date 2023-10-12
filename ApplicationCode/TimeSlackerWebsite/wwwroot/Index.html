@@ -29,7 +29,7 @@
             <div style="background: linear-gradient(0deg, rgba(16,67,71,0.7) 0%, rgba(17,61,89,0) 50%, rgba(17,61,89,0.6) 100%);">
                 <div class="bg-dot-grid">
                     <div class="video-container">
-                        <video autoplay="autoplay" muted="muted" loop="loop" poster="Content/Videos/clock-loop.jpg">
+                        <video class="video-player" autoplay="autoplay" muted="muted" loop="loop" poster="Content/Videos/clock-loop.jpg">
                             <source src="Content/Videos/clock-loop.mp4" type="video/mp4" />
                         </video>
                     </div>
@@ -57,15 +57,27 @@
 
         <!-- LATEST FAILURES -->
         <div class="position-relative">
-            <div class="py-5" style="background: #101216">
-                <div class="container-xl">
-                    <h2 class="text-center text-white text-uppercase bahnizer mb-0" style="font-size: 2.5rem;">Latest failures</h2>
-                    <h3 class="text-center fw-light bahnizer">
-                        <span id="recentStartDate">10/2</span> &mdash; <span id="recentEndDate">10/8</span>
-                    </h3>
-                    <hr />
-                    <div id="recent-fails-container" class="row">
+            <div style="background: none">
+                <div class="bg-dot-grid">
+                    <div class="video-container">
+                        <video class="video-player" autoplay="autoplay" muted="muted" loop="loop" poster="Content/Videos/meat-loop.jpg">
+                            <source src="Content/Videos/meat-loop.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <div class="container-xl">
+                        <div class="py-5">
+                            <h2 class="text-center text-white text-uppercase bahnizer mb-0" style="font-size: 2.5rem;">Latest failures</h2>
+                            <h3 class="text-center fw-light bahnizer">
+                                <span id="recentStartDate">10/2</span> &mdash; <span id="recentEndDate">10/8</span>
+                            </h3>
+                            <div class="compliance-award-container">
+                                <i class="fa-solid fa-award compliance-award"></i>
+                            </div>
+                            <h2 class="display-1 text-center text-uppercase text-white bahnizer"><strong>100%</strong> compliance</h2>
+                            <div id="recent-fails-container" class="row">
 
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
