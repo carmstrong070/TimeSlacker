@@ -9,4 +9,6 @@ $(function () {
     getClosestCall();
     getFailsOverTime();
     getTreemap();
+
+    fitty(".flippable-back-titling-name");
 });
