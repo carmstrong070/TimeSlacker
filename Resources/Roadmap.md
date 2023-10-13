@@ -44,6 +44,7 @@
 - [ ] Close calls
 - [ ] Top 3 most failures across the company
 - [ ] Aggregate stats grouped by team (Dev, Fay, Env)
+- [ ] Days of 100% compliance
 
 ### Visualizations
 
