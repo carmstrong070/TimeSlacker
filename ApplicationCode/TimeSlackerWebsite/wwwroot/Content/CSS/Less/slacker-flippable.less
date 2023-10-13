@@ -13,14 +13,25 @@
  * Flippable Card
 /* ---------------------------------------------- */
 
+.flippable-container {
+    position: relative;
+    display: inline-block;
+    width: @flippable-width;
+    height: @flippable-height;
+    overflow: visible;
+
+    &:not(:last-child) {
+        margin-right: 1em;
+    }
+}
+
 .flippable {
     font-family: bahnshrift, sans-serif;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     width: @flippable-width;
     height: @flippable-height;
-    margin: -150px;
     float: left;
     perspective: @flippable-height;
 }
@@ -226,6 +237,7 @@
 .flippable-back-stats {
     text-align: left;
     padding: 0 25px;
+    white-space: normal;
 }
 
 .flippable-back-stat-container {
@@ -265,4 +277,15 @@
     width: 50px;
     height: 50px;
     margin: 2px;
+}
+
+/* ---------------------------------------------- /*
+ * Flippable Carousel
+/* ---------------------------------------------- */
+
+.flippable-carousel {
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: visible;
 }
