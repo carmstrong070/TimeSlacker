@@ -8,6 +8,8 @@
 @flippable-width: 300px;
 @flippable-height: 500px;
 @flippable-border-radius: 0.75rem;
+@carousel-top: 100px;
+@carousel-bottom: 120px;
 
 /* ---------------------------------------------- /*
  * Flippable Card
@@ -21,7 +23,7 @@
     overflow: visible;
 
     &:not(:last-child) {
-        margin-right: 1em;
+        margin-right: 20px;
     }
 }
 
@@ -284,8 +286,28 @@
 /* ---------------------------------------------- */
 
 .flippable-carousel {
+    font-size: 0;
+    width: 100%;
+    padding: @carousel-top 40px @carousel-bottom;
+    margin-top: -@carousel-top;
+    margin-bottom: -@carousel-bottom;
     text-align: center;
     white-space: nowrap;
     overflow-x: scroll;
-    overflow-y: visible;
+    overflow-y: clip;
+    position: relative;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.flippable-carousel-background {
+    position: absolute;
+    top: @carousel-top;
+    left: 0;
+    width: 100%;
+    height: ~"calc(100% - " (@carousel-top + @carousel-bottom) ~")";
 }
