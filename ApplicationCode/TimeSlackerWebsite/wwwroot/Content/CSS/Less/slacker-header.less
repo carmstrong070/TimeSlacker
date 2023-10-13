@@ -6,9 +6,15 @@
 /* ---------------------------------------------- */
 
 .navbar-brand {
+    @navbar-brand-text-color: #c8c8c8;
+
     border-right: none;
-    color: #c8c8c8;
+    color: @navbar-brand-text-color;
     padding-left: 0;
+
+    &:hover {
+        color: @navbar-brand-text-color
+    }
 }
 
 #ada-title {
@@ -27,6 +33,11 @@
     font-family: bahnshrift, sans-serif;
     letter-spacing: .3rem;
     text-shadow: 0 2px 0 #000, 0 4px 4px rgba(0,0,0,.2);
+    color: @site-logo-text-color;
+}
+
+#site-logo {
+    display: block;
 }
 
 #site-separator {

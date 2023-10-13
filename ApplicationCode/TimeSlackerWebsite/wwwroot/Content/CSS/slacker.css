@@ -17,18 +17,6 @@
  * Transitions
 /* ---------------------------------------------- */
 /* ---------------------------------------------- /*
- * Root
-/* ---------------------------------------------- */
-@-ms-viewport {
-  width: device-width;
-}
-html {
-  -ms-overflow-style: scrollbar;
-}
-body {
-  min-height: 20rem;
-}
-/* ---------------------------------------------- /*
  * Fonts
 /* ---------------------------------------------- */
 @font-face {
@@ -46,12 +34,30 @@ body {
   font-family: bahnshrift, sans-serif;
 }
 /* ---------------------------------------------- /*
+ * Root
+/* ---------------------------------------------- */
+@-ms-viewport {
+  width: device-width;
+}
+:root {
+  --bs-font-sans-serif: bahnshrift, system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+html {
+  -ms-overflow-style: scrollbar;
+}
+body {
+  min-height: 20rem;
+}
+/* ---------------------------------------------- /*
  * Header
 /* ---------------------------------------------- */
 .navbar-brand {
   border-right: none;
   color: #c8c8c8;
   padding-left: 0;
+}
+.navbar-brand:hover {
+  color: #c8c8c8;
 }
 #ada-title {
   font-family: kremlin, sans-serif;
@@ -69,6 +75,10 @@ body {
   font-family: bahnshrift, sans-serif;
   letter-spacing: 0.3rem;
   text-shadow: 0 2px 0 #000, 0 4px 4px rgba(0, 0, 0, 0.2);
+  color: #e5f3f7;
+}
+#site-logo {
+  display: block;
 }
 #site-separator {
   font-size: 1.25rem;
@@ -127,6 +137,13 @@ body {
 .compliance-award {
   font-size: 12rem;
   animation: tilt-rotating 2s alternate ease-in-out infinite;
+}
+.separator {
+  display: block;
+  height: 1px;
+  border-left: 1px solid #c8c8c8;
+  border-right: 1px solid #c8c8c8;
+  background-color: #64686b;
 }
 /* ---------------------------------------------- /*
  * Backgrounds
