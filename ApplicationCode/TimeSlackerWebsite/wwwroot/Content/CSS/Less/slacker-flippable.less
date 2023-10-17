@@ -36,6 +36,82 @@
     height: @flippable-height;
     float: left;
     perspective: @flippable-height;
+
+    &.ptc {
+        .flippable-front-meta-team {
+            margin-right: -2.5px;
+        }
+
+        .flippable-back-meta-team-container {
+            margin-right: -5px;
+        }
+
+        .flippable-back-meta-team-label,
+        .flippable-back-titling-name {
+            color: @ptc-text-color;
+        }
+
+        .flippable-back-img-container {
+            border-color: @ptc-border-color;
+        }
+    }
+
+    &.env {
+        .flippable-front-meta-team {
+            margin-right: -7.5px;
+        }
+
+        .flippable-back-meta-team-container {
+            margin-right: -10px;
+        }
+
+        .flippable-back-meta-team-label,
+        .flippable-back-titling-name {
+            color: @env-text-color;
+        }
+
+        .flippable-back-img-container {
+            border-color: @env-border-color;
+        }
+    }
+
+    &.dev {
+        .flippable-front-meta-team {
+            margin-right: -5px;
+        }
+
+        .flippable-back-meta-team-container {
+            margin-right: -5px;
+        }
+
+        .flippable-back-meta-team-label,
+        .flippable-back-titling-name {
+            color: @dev-text-color;
+        }
+
+        .flippable-back-img-container {
+            border-color: @dev-border-color;
+        }
+    }
+
+    &.fay {
+        .flippable-front-meta-team {
+            margin-right: -10px;
+        }
+
+        .flippable-back-meta-team-container {
+            margin-right: -15px;
+        }
+
+        .flippable-back-meta-team-label,
+        .flippable-back-titling-name {
+            color: @fay-text-color;
+        }
+
+        .flippable-back-img-container {
+            border-color: @fay-border-color;
+        }
+    }
 }
 
 .flippable-content {
@@ -46,6 +122,7 @@
     border-radius: @flippable-border-radius;
     .transition(transform 1.75s @base-easing);
     transform-style: preserve-3d;
+    white-space: normal;
 }
 
 .flippable:hover .flippable-content {
@@ -108,10 +185,6 @@
 .flippable-front-meta-team {
     display: block;
     float: right;
-
-    &.fay {
-        margin-right: -10px;
-    }
 }
 
 .flippable-front-titling {
@@ -151,7 +224,7 @@
     margin-top: 40px;
     width: 152px;
     height: 152px;
-    border: 1px solid @fay-border-color;
+    border: 1px solid transparent;
     border-radius: 50%;
 }
 
@@ -192,14 +265,6 @@
 
 .flippable-back-meta-team-container {
     float: right;
-
-    &.fay {
-        margin-right: -15px;
-
-        .flippable-back-meta-team-label {
-            color: @fay-text-color;
-        }
-    }
 }
 
 .flippable-back-meta-team {
@@ -280,7 +345,6 @@
     height: 50px;
     margin: 2px;
 }
-
 /* ---------------------------------------------- /*
  * Flippable Carousel
 /* ---------------------------------------------- */

@@ -193,6 +193,58 @@ body {
   float: left;
   perspective: 500px;
 }
+.flippable.ptc .flippable-front-meta-team {
+  margin-right: -2.5px;
+}
+.flippable.ptc .flippable-back-meta-team-container {
+  margin-right: -5px;
+}
+.flippable.ptc .flippable-back-meta-team-label,
+.flippable.ptc .flippable-back-titling-name {
+  color: #2778ab;
+}
+.flippable.ptc .flippable-back-img-container {
+  border-color: #2778ab;
+}
+.flippable.env .flippable-front-meta-team {
+  margin-right: -7.5px;
+}
+.flippable.env .flippable-back-meta-team-container {
+  margin-right: -10px;
+}
+.flippable.env .flippable-back-meta-team-label,
+.flippable.env .flippable-back-titling-name {
+  color: #418a3e;
+}
+.flippable.env .flippable-back-img-container {
+  border-color: #418a3e;
+}
+.flippable.dev .flippable-front-meta-team {
+  margin-right: -5px;
+}
+.flippable.dev .flippable-back-meta-team-container {
+  margin-right: -5px;
+}
+.flippable.dev .flippable-back-meta-team-label,
+.flippable.dev .flippable-back-titling-name {
+  color: #184965;
+}
+.flippable.dev .flippable-back-img-container {
+  border-color: #184965;
+}
+.flippable.fay .flippable-front-meta-team {
+  margin-right: -10px;
+}
+.flippable.fay .flippable-back-meta-team-container {
+  margin-right: -15px;
+}
+.flippable.fay .flippable-back-meta-team-label,
+.flippable.fay .flippable-back-titling-name {
+  color: #938c2d;
+}
+.flippable.fay .flippable-back-img-container {
+  border-color: #938c2d;
+}
 .flippable-content {
   position: absolute;
   width: 100%;
@@ -204,6 +256,7 @@ body {
   -moz-transition: transform 1.75s cubic-bezier(0.19, 1, 0.22, 1);
   transition: transform 1.75s cubic-bezier(0.19, 1, 0.22, 1);
   transform-style: preserve-3d;
+  white-space: normal;
 }
 .flippable:hover .flippable-content {
   transform: rotateY(180deg);
@@ -262,9 +315,6 @@ body {
   display: block;
   float: right;
 }
-.flippable-front-meta-team.fay {
-  margin-right: -10px;
-}
 .flippable-front-titling {
   position: absolute;
   bottom: 25px;
@@ -298,7 +348,7 @@ body {
   margin-top: 40px;
   width: 152px;
   height: 152px;
-  border: 1px solid #938c2d;
+  border: 1px solid transparent;
   border-radius: 50%;
 }
 .flippable-back-img {
@@ -333,12 +383,6 @@ body {
 }
 .flippable-back-meta-team-container {
   float: right;
-}
-.flippable-back-meta-team-container.fay {
-  margin-right: -15px;
-}
-.flippable-back-meta-team-container.fay .flippable-back-meta-team-label {
-  color: #938c2d;
 }
 .flippable-back-meta-team {
   display: block;
