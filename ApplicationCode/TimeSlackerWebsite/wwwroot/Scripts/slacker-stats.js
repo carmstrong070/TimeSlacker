@@ -24,7 +24,8 @@ function getRecentFails() {
                 renderRecentFails(data);
                 $("#compliance-video").hide();
                 $("#compliance-container").hide();
-                $("#recent-fails-container").css("background", "#101216");
+                $("#recent-fails-container").removeClass("bg-dot-grid");
+                $("#recent-fails-container").css("background-color", "saddlebrown");
             }
         },
         fail: function (jqXHR, textStatus) {
@@ -80,33 +81,3 @@ function getFailsOverTime() {
         }
     });
 }
-
-
-//#region helpers
-
-function renderRecentFails(data) {
-    let htmlExpression = ""
-    data.forEach((fail) => {
-        htmlExpression += "<div class='col-xxl-3 col-xl-4 col-md-6 d-md-flex align-items-stretch mb-3'>";
-        htmlExpression += "    <div class='card h-100 w-100 shadow' data-employeeId='" + fail.employeeId + "'>";
-        htmlExpression += "        <div class='card-body d-md-flex flex-md-column'>";
-        htmlExpression += "            <div class='img-fluid card-img-top mb-3'>";
-        htmlExpression += "                <div class='text-center'>";
-        htmlExpression += "                    <i class='fa-solid fa-user' style='font-size: 5rem;'></i>";
-        htmlExpression += "                </div>";
-        htmlExpression += "            </div>";
-        htmlExpression += "            <h5 class='card-title'>" + fail.firstName + " " + fail.lastName + "</h5>";
-        htmlExpression += "            <ul class='card-text flex-md-fill'>";
-        htmlExpression += "                <li>Total Fails: " + fail.totalFails + "</li>";
-        htmlExpression += "                <li>Most Recent Fail: " + fail.mostRecent + "</li>";
-        htmlExpression += "                <li>Total Fails: " + (fail.failRate * 100).toFixed(2) + "%</li>";
-        htmlExpression += "            </ul>";
-        htmlExpression += "        </div>";
-        htmlExpression += "    </div>";
-        htmlExpression += "</div>";
-    });
-
-    $("#recent-fails-display").html(htmlExpression);
-}
-
-//#endregion

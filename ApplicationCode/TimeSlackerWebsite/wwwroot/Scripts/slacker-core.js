@@ -1,5 +1,6 @@
 //-- Global variables
 var slacker_rootPath = "C:\\Team\\web\\";
+var slackerJson = {};
 
 //-- Init
 $(function () {

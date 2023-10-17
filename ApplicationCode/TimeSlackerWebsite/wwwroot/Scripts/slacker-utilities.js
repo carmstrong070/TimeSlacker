@@ -1,3 +1,9 @@
+$(function () {
+    loadJson("/Scripts/slacker-data.json", function (jsonText) {
+        slackerJson = JSON.parse(jsonText);
+    });
+});
+
 //-- https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
 function loadJson(jsonFilepath, callback) {
     let xobj = new XMLHttpRequest();
