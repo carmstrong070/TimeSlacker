@@ -20,18 +20,30 @@
  * Fonts
 /* ---------------------------------------------- */
 @font-face {
+  font-family: bahnshrift;
+  src: url('../Fonts/bahnschrift.ttf');
+}
+@font-face {
   font-family: kremlin;
   src: url('../Fonts/kremlin.ttf');
 }
 @font-face {
-  font-family: bahnshrift;
-  src: url('../Fonts/bahnschrift.ttf');
+  font-family: purista;
+  src: url('../Fonts/purista.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: purista;
+  src: url('../Fonts/purista semibold.ttf');
+  font-weight: bold;
+  font-style: normal;
 }
 .kremlinizer {
   font-family: kremlin, sans-serif;
 }
-.bahnizer {
-  font-family: bahnshrift, sans-serif;
+.puristizer {
+  font-family: purista, sans-serif;
 }
 /* ---------------------------------------------- /*
  * Root
@@ -141,9 +153,9 @@ body {
 .separator {
   display: block;
   height: 1px;
-  border-left: 1px solid #c8c8c8;
-  border-right: 1px solid #c8c8c8;
-  background-color: #64686b;
+  border-left: 1px solid rgba(255, 255, 255, 0.9);
+  border-right: 1px solid rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 /* ---------------------------------------------- /*
  * Backgrounds
@@ -166,6 +178,13 @@ body {
 }
 .bg-dot-grid-light {
   background: url('../Images/Backgrounds/pattern-light.png') repeat center fixed;
+}
+.bg-tech-grid-1 {
+  background: url('../Images/Backgrounds/tech-grid-1.png') repeat center;
+}
+.bg-yellow-bokeh {
+  background: url('../Images/Backgrounds/yellow-bokeh.jpg') no-repeat center;
+  background-size: cover;
 }
 /* ---------------------------------------------- /*
  * Variables
