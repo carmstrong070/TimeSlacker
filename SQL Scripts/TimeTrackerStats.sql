@@ -1,6 +1,23 @@
 USE TimeTracker
 GO
 
+-- Upcoming fails
+SELECT *
+	FROM tbl_Employees e
+		LEFT JOIN Submission.SubmissionApprovalEvents ae
+			ON e.Employee_ID = ae.Employee_Id
+				AND ae.EventDurationEndDate = '2023-10-22'
+				AND ae.EventTypeId = '1'
+	WHERE ae.EventId IS NULL AND e.IsActive = '1'
+
+
+SELECT *
+	FROM Submission.SubmissionApprovalEvents ae
+	WHERE Employee_Id = '48'
+			AND ae.EventDurationEndDate = '2023-10-22'
+	ORDER BY ae.EventDateStamp desc
+
+
 -- Get Total Fails
 SELECT COUNT(*)
 	FROM
