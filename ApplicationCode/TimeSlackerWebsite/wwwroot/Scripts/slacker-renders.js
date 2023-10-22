@@ -8,14 +8,14 @@
         let years = getYears(slackerJson.find((x) => x.EmployeeId == empId).StartDate);
 
         htmlExpression += "<div class='flippable-container'>";
-        htmlExpression += "    <div class='flippable'>";
+        htmlExpression += "    <div class='flippable " + team.toLowerCase() + "'>";
         htmlExpression += "        <div class='flippable-content'>";
         htmlExpression += "            <div class='flippable-front'>";
         htmlExpression += "                <img src='Content/Images/Employee Cards/" + imgName + ".jpg' width='300' height='500' class='flippable-front-img' draggable='false' />";
         htmlExpression += "                <div class='flippable-front-gradient'></div>";
         htmlExpression += "                <div class='flippable-front-meta'>";
         htmlExpression += "                    <span class='flippable-front-meta-years'>" + years + "</span>";
-        htmlExpression += "                    <img src='Content/Images/Logos/" + team.toLowerCase() + "_35x35.png' width='35' height='35' class='flippable-front-meta-team " + team.toLowerCase() + "' draggable='false' />";
+        htmlExpression += "                    <img src='Content/Images/Logos/" + team.toLowerCase() + "_35x35.png' width='35' height='35' class='flippable-front-meta-team' draggable='false' />";
         htmlExpression += "                </div>";
         htmlExpression += "                <div class='flippable-front-titling'>";
         htmlExpression += "                    <span class='flippable-front-titling-name'>" + fail.firstName + " " + fail.lastName + "</span>";
@@ -26,7 +26,7 @@
         htmlExpression += "                <div class='flippable-back-meta'>";
         htmlExpression += "                    <div class='flippable-back-meta-years-container'>";
         htmlExpression += "                        <span class='flippable-back-meta-years'>" + years + "</span>";
-        htmlExpression += "                        <span class='flippable-back-meta-years-label'>years</span>";
+        htmlExpression += "                        <span class='flippable-back-meta-years-label'>year" + (years == 1 ? "s" : "") + "</span>";
         htmlExpression += "                    </div>";
         htmlExpression += "                    <div class='flippable-back-meta-team-container " + team.toLowerCase() + "'>";
         htmlExpression += "                        <img src='Content/Images/Logos/" + team.toLowerCase() + "_50x50.png' width='50' height='50' class='flippable-back-meta-team' draggable='false' />";
@@ -68,6 +68,7 @@
     });
 
     $("#recent-fails-display").html(htmlExpression);
+    fitty(".flippable-back-titling-name");
 }
 
 function getYears(dateString) {
