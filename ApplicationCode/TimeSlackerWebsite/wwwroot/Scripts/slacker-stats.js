@@ -21,11 +21,9 @@ function getRecentFails() {
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             if (data.length > 0) {
-                renderRecentFails(data);
-                $("#compliance-video").hide();
                 $("#compliance-container").hide();
-                $("#recent-fails-container").removeClass("bg-dot-grid");
-                $("#recent-fails-container").css("background-color", "saddlebrown");
+                $("#recent-fails-container").show();
+                renderRecentFails(data);
             }
         },
         fail: function (jqXHR, textStatus) {

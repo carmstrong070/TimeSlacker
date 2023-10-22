@@ -12,4 +12,5 @@ $(function () {
     getTreemap();
 
     fitty(".flippable-back-titling-name");
+    fitty(".flippable-back-titling-job");
 });

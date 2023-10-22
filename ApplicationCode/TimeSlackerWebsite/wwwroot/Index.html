@@ -45,7 +45,7 @@
                                         Keeping you honest about your failures:
                                     </p>
                                     <p class="lead text-white" style="font-size: 1.75rem; margin-top: -20px;">
-                                        <strong id="lbl-total-fails">1,234</strong> combined failures so far.
+                                        <strong id="lbl-total-fails">1,234</strong> combined failures... so far.
                                     </p>
                                 </div>
                             </div>
@@ -58,32 +58,48 @@
             </div>
         </div>
 
-        <!-- LATEST FAILURES -->
-        <div class="position-relative">
+        <!-- 100% Compliance -->
+        <div class="position-relative" id="compliance-container">
             <div style="background: none">
-                <div id="recent-fails-container" class="bg-dot-grid">
-                    <div id="compliance-video" class="video-container">
+                <div class="bg-dot-grid">
+                    <div class="video-container">
                         <video class="video-player" autoplay="autoplay" muted="muted" loop="loop" poster="Content/Videos/meat-loop.jpg">
                             <source src="Content/Videos/meat-loop.mp4" type="video/mp4" />
                         </video>
                     </div>
                     <div class="container-xl">
                         <div class="py-5">
-                            <h2 class="text-center text-white text-uppercase mb-0" style="font-size: 2.5rem;">Latest failures</h2>
-                            <h3 class="text-center fw-light">
-                                <span id="recentStartDate">10/2</span> &mdash; <span id="recentEndDate">10/8</span>
-                            </h3>
-                            <div id="compliance-container">
+                            <div>
                                 <div class="compliance-award-container">
                                     <i class="fa-solid fa-award compliance-award"></i>
                                 </div>
                                 <h2 class="display-1 text-center text-uppercase text-white"><strong>100%</strong> compliance</h2>
                             </div>
-                            <div id="recent-fails-display" class="flippable-carousel">
-
-                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LATEST FAILURES -->
+        <div class="position-relative" id="recent-fails-container" style="display: none">
+            <div class="bg-yellow-bokeh">
+                <div class="bg-dot-grid">
+                    <div class="container-xl py-5">
+                        <div class="separator"></div>
+                        <h2 class="text-center text-white text-uppercase puristizer fw-bold mb-0" style="font-size: 3rem;">Latest failures</h2>
+                        <h3 class="text-center puristizer fw-light mb-0">
+                            <span id="recentStartDate">10/2</span> &mdash; <span id="recentEndDate">10/8</span>
+                        </h3>
+                        <div class="separator"></div>
+                    </div>
+                    <div class="position-relative" style="z-index: 1">
+                        <div class="flippable-carousel-background bg-tech-grid-1"></div>
+                        <div id="recent-fails-display" class="flippable-carousel">
+
+                        </div>
+                    </div>
+                    <div class="py-4"></div>
                 </div>
             </div>
         </div>
