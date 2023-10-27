@@ -66,10 +66,11 @@
 | **Veteran** | Existed before timesheet submissions were required |
 | **Predictable** | Monday timesheet submission when Monday is not the end date |
 | **Smarter Not Harder** | Least hours logged in _time period_ |
-| **Employee Of The Month** _or_ **Milking it** | Most hours logged in a month |
+| **Employee Of The Month** | Most hours logged in a month |
+| **Milking it** | Charge 12 hours of Fay |
 | **All by myself** | Only person to report time to a specific WO# |
 | **Emoji User** | Uses smiley faces in timesheet notes |
-| **The Seabass** | Charging 10 hours of vacation time in a week |
+| **The Seabass** | Charging 10 hours of vacation time in a day |
 
 ---
 
