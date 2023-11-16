@@ -26,7 +26,7 @@
         htmlExpression += "                <div class='flippable-back-meta'>";
         htmlExpression += "                    <div class='flippable-back-meta-years-container'>";
         htmlExpression += "                        <span class='flippable-back-meta-years'>" + years + "</span>";
-        htmlExpression += "                        <span class='flippable-back-meta-years-label'>year" + (years == 1 ? "s" : "") + "</span>";
+        htmlExpression += "                        <span class='flippable-back-meta-years-label'>year" + (years == 1 ? "" : "s") + "</span>";
         htmlExpression += "                    </div>";
         htmlExpression += "                    <div class='flippable-back-meta-team-container " + team.toLowerCase() + "'>";
         htmlExpression += "                        <img src='Content/Images/Logos/" + team.toLowerCase() + "_50x50.png' width='50' height='50' class='flippable-back-meta-team' draggable='false' />";

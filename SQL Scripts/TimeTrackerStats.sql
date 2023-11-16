@@ -6,7 +6,7 @@ SELECT *
 	FROM tbl_Employees e
 		LEFT JOIN Submission.SubmissionApprovalEvents ae
 			ON e.Employee_ID = ae.Employee_Id
-				AND ae.EventDurationEndDate = '2023-10-22'
+				AND ae.EventDurationEndDate > GETDATE()
 				AND ae.EventTypeId = '1'
 	WHERE ae.EventId IS NULL AND e.IsActive = '1'
 

@@ -161,7 +161,7 @@ namespace TimeSlackerApi.Data
 				                                    ON e.Employee_ID = t.Employee_Id
 			                                    WHERE e.IsActive = '1'
                                     )
-                                    SELECT e.Employee_ID, e.Fname, e.Lname, f.Failures, mr.MostRecent, r.FailureRate
+                                    SELECT DISTINCT e.Employee_ID, e.Fname, e.Lname, f.Failures, mr.MostRecent, r.FailureRate
 	                                    FROM tbl_Employees e
 		                                    INNER JOIN MostRecent mr
 			                                    ON e.Employee_ID = mr.Employee_Id
@@ -171,7 +171,7 @@ namespace TimeSlackerApi.Data
 			                                    ON e.Employee_ID = r.Employee_Id
 		                                    LEFT JOIN Submission.SubmissionApprovalEvents ae
 			                                    ON e.Employee_Id = ae.Employee_ID 
-				                                    AND ae.EventDateStamp < DATEADD(dd, 1, ae.EventDurationEndDate)
+				                                    AND ae.EventDateStamp > DATEADD(dd, 1, ae.EventDurationEndDate)
 				                                    AND ae.EventDurationEndDate = (SELECT TOP (1) ae.EventDurationEndDate
 												                                    FROM Submission.SubmissionApprovalEvents ae
 												                                    WHERE ae.EventDurationEndDate < GETDATE()
@@ -179,7 +179,7 @@ namespace TimeSlackerApi.Data
 												                                    ORDER BY ae.EventDurationEndDate DESC)
 				                                    AND ae.EventTypeId = '1'
 	                                    WHERE e.IsActive = '1' 
-			                                    AND ae.EventDateStamp IS NULL 
+			                                    AND ae.EventDateStamp IS NOT NULL 
 			                                    AND e.Employee_ID NOT IN ('125', '134', '50', '103') --Exclude Chris Rennix, Grace Grimsted, Katie Waldron, and Vanessa Nygren
 	                                    ORDER BY e.Employee_ID;";
 
@@ -283,7 +283,7 @@ namespace TimeSlackerApi.Data
 												ON sp.EventDurationStartDate = ae.EventDurationStartDate
 													AND EventTypeId = 1 
 													AND ae.EventDateStamp > DATEADD(day, 1, ae.EventDurationEndDate)
-													AND ae.Employee_Id NOT IN ('125', '134', '50', '103') --Exclude Chris Rennix, Grace Grimsted, Katie Waldron, and Vanessa Nygren
+													AND ae.Employee_Id NOT IN ('50', '103', '125', '134') --Exclude Chris Rennix, Grace Grimsted, Katie Waldron, and Vanessa Nygren
 										GROUP BY sp.EventDurationStartDate, sp.EventDurationEndDate
 										ORDER BY sp.EventDurationEndDate ASC;";
 
