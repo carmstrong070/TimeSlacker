@@ -113,75 +113,101 @@ namespace TimeSlackerApi.Data
             using (var cmd = sqlConn.CreateCommand())
             {
                 cmd.CommandText = @"-- Fails of the Previous week
-                                    WITH MostRecent (Employee_Id, MostRecent)
-                                    AS
-                                    (
-	                                    -- Most Recent Fail besides last week.
-	                                    SELECT e.Employee_Id, MAX(EventDurationEndDate)
-		                                    FROM tbl_Employees e
-			                                    LEFT JOIN Submission.SubmissionApprovalEvents ae
-				                                    ON e.Employee_ID = ae.Employee_Id
-					                                    AND EventTypeId = 1 
-					                                    AND ae.EventDateStamp > DATEADD(day, 1, ae.EventDurationEndDate) 
-					                                    AND ae.EventDurationEndDate > '2022-05-23'
-					                                    AND ae.EventDurationEndDate < (SELECT TOP (1) ae.EventDurationEndDate
-									                                    FROM Submission.SubmissionApprovalEvents ae
-									                                    WHERE ae.EventDurationEndDate < GETDATE()
-									                                    ORDER BY ae.EventDurationEndDate DESC)
-		                                    GROUP BY e.Employee_Id
-                                    ), Failures (Employee_Id, Failures)
-                                    AS
-                                    (
-	                                    SELECT DISTINCT Employee_Id, COUNT(DISTINCT EventDurationEndDate) AS Failures
-		                                    FROM Submission.SubmissionApprovalEvents ae
-		                                    WHERE EventTypeId = '1' 
-			                                    AND ae.EventDateStamp > DATEADD(day, 1, ae.EventDurationEndDate) 
-			                                    AND ae.EventDurationEndDate > '2022-05-23'
-		                                    GROUP BY Employee_Id
-                                    ), Totals (Employee_Id, Total)
-                                    AS
-                                    (
-	                                    -- Time Sheets per person
-	                                    SELECT ae.Employee_Id, COUNT(DISTINCT EventDurationEndDate)
-		                                    FROM Submission.SubmissionApprovalEvents ae
-		                                    INNER JOIN tbl_Employees emp
-				                                    ON ae.Employee_Id = emp.Employee_ID
-		                                    WHERE emp.IsActive = '1'
-			                                    AND EventTypeId = '1'
-			                                    AND ae.EventDurationEndDate > '2022-05-23'
-		                                    GROUP BY ae.Employee_Id
-                                    ), Rates (Employee_Id, FailureRate)
-                                    AS
-                                    (
-	                                    SELECT e.Employee_ID,CAST(((f.Failures * 1.00) / t.Total) AS numeric(10,4)) AS FailureRate
-		                                    FROM tbl_Employees e
-			                                    INNER JOIN Failures f
-				                                    ON e.Employee_Id = f.Employee_ID
-			                                    INNER JOIN Totals t
-				                                    ON e.Employee_ID = t.Employee_Id
-			                                    WHERE e.IsActive = '1'
-                                    )
-                                    SELECT DISTINCT e.Employee_ID, e.Fname, e.Lname, f.Failures, mr.MostRecent, r.FailureRate
-	                                    FROM tbl_Employees e
-		                                    INNER JOIN MostRecent mr
-			                                    ON e.Employee_ID = mr.Employee_Id
-		                                    INNER JOIN Failures f
-			                                    ON e.Employee_ID = f.Employee_Id
-		                                    INNER JOIN Rates r
-			                                    ON e.Employee_ID = r.Employee_Id
-		                                    LEFT JOIN Submission.SubmissionApprovalEvents ae
-			                                    ON e.Employee_Id = ae.Employee_ID 
-				                                    AND ae.EventDateStamp > DATEADD(dd, 1, ae.EventDurationEndDate)
-				                                    AND ae.EventDurationEndDate = (SELECT TOP (1) ae.EventDurationEndDate
-												                                    FROM Submission.SubmissionApprovalEvents ae
-												                                    WHERE ae.EventDurationEndDate < GETDATE()
-													                                    AND GETDATE() > DATEADD(day, 1, ae.EventDurationEndDate) 
-												                                    ORDER BY ae.EventDurationEndDate DESC)
-				                                    AND ae.EventTypeId = '1'
-	                                    WHERE e.IsActive = '1' 
-			                                    AND ae.EventDateStamp IS NOT NULL 
-			                                    AND e.Employee_ID NOT IN ('125', '134', '50', '103') --Exclude Chris Rennix, Grace Grimsted, Katie Waldron, and Vanessa Nygren
-	                                    ORDER BY e.Employee_ID;";
+									WITH MostRecent (Employee_Id, MostRecent)
+									AS
+									(
+										-- Most Recent Fail besides last week.
+										SELECT e.Employee_Id, MAX(EventDurationEndDate)
+											FROM tbl_Employees e
+												LEFT JOIN Submission.SubmissionApprovalEvents ae
+													ON e.Employee_ID = ae.Employee_Id
+														AND EventTypeId = 1 
+														AND ae.EventDateStamp > DATEADD(day, 1, ae.EventDurationEndDate) 
+														AND ae.EventDurationEndDate > '2022-05-23'
+														AND ae.EventDurationEndDate < (SELECT TOP (1) ae.EventDurationEndDate
+																		FROM Submission.SubmissionApprovalEvents ae
+																		WHERE ae.EventDurationEndDate < GETDATE()
+																		ORDER BY ae.EventDurationEndDate DESC)
+											GROUP BY e.Employee_Id
+									), Failures (Employee_Id, Failures)
+									AS
+									(
+										SELECT DISTINCT Employee_Id, COUNT(DISTINCT EventDurationEndDate) AS Failures
+											FROM Submission.SubmissionApprovalEvents ae
+											WHERE EventTypeId = '1' 
+												AND ae.EventDateStamp > DATEADD(day, 1, ae.EventDurationEndDate) 
+												AND ae.EventDurationEndDate > '2022-05-23'
+											GROUP BY Employee_Id
+									), Totals (Employee_Id, Total)
+									AS
+									(
+										-- Time Sheets per person
+										SELECT ae.Employee_Id, COUNT(DISTINCT EventDurationEndDate)
+											FROM Submission.SubmissionApprovalEvents ae
+											INNER JOIN tbl_Employees emp
+													ON ae.Employee_Id = emp.Employee_ID
+											WHERE emp.IsActive = '1'
+												AND EventTypeId = '1'
+												AND ae.EventDurationEndDate > '2022-05-23'
+											GROUP BY ae.Employee_Id
+									), Rates (Employee_Id, FailureRate)
+									AS
+									(
+										SELECT e.Employee_ID,CAST(((f.Failures * 1.00) / t.Total) AS numeric(10,4)) AS FailureRate
+											FROM tbl_Employees e
+												INNER JOIN Failures f
+													ON e.Employee_Id = f.Employee_ID
+												INNER JOIN Totals t
+													ON e.Employee_ID = t.Employee_Id
+												WHERE e.IsActive = '1'
+									), FailedSubmission (Employee_Id)
+									AS
+									(
+										SELECT DISTINCT e.Employee_ID
+											FROM tbl_Employees e
+												INNER JOIN Submission.SubmissionApprovalEvents ae
+													ON e.Employee_Id = ae.Employee_ID 
+											WHERE ae.EventDateStamp > DATEADD(dd, 1, ae.EventDurationEndDate)
+												AND ae.EventDurationEndDate = (SELECT TOP (1) ae.EventDurationEndDate
+																					FROM Submission.SubmissionApprovalEvents ae
+																					WHERE ae.EventDurationEndDate < GETDATE()
+																						AND GETDATE() > DATEADD(day, 1, ae.EventDurationEndDate) 
+																					ORDER BY ae.EventDurationEndDate DESC)
+												AND ae.EventTypeId = '1'
+												AND e.IsActive = '1'
+									), MissingSubmission (Employee_Id)
+									AS
+									(
+										SELECT DISTINCT e.Employee_ID
+											FROM tbl_Employees e
+												LEFT JOIN Submission.SubmissionApprovalEvents ae
+													ON e.Employee_Id = ae.Employee_ID 
+														AND ae.EventDateStamp < DATEADD(dd, 1, ae.EventDurationEndDate)
+														AND ae.EventDurationEndDate = (SELECT TOP (1) ae.EventDurationEndDate
+																						FROM Submission.SubmissionApprovalEvents ae
+																						WHERE ae.EventDurationEndDate < GETDATE()
+																							AND GETDATE() > DATEADD(day, 1, ae.EventDurationEndDate) 
+																						ORDER BY ae.EventDurationEndDate DESC)
+														AND ae.EventTypeId = '1'
+											WHERE e.IsActive = '1' 
+												AND ae.EventDateStamp IS NULL 
+									)
+									SELECT DISTINCT e.Employee_ID, e.Fname, e.Lname, f.Failures, mr.MostRecent, r.FailureRate
+										FROM tbl_Employees e
+											INNER JOIN MostRecent mr
+												ON e.Employee_ID = mr.Employee_Id
+											INNER JOIN Failures f
+												ON e.Employee_ID = f.Employee_Id
+											INNER JOIN Rates r
+												ON e.Employee_ID = r.Employee_Id
+											LEFT JOIN FailedSubmission fs
+												ON e.Employee_ID = fs.Employee_Id
+											LEFT JOIN MissingSubmission ms
+												ON e.Employee_ID = ms.Employee_Id
+										WHERE e.IsActive = '1' 
+											AND e.Employee_ID NOT IN ('125', '134', '50', '103') --Exclude Chris Rennix, Grace Grimsted, Katie Waldron, and Vanessa Nygren
+											AND (fs.Employee_Id IS NOT NULL OR ms.Employee_Id IS NOT NULL) -- Failure when you have a failed submission or are missing a submission
+										ORDER BY e.Employee_ID;";
 
                 sqlConn.Open();
 
