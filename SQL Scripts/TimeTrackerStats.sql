@@ -6,15 +6,18 @@ SELECT *
 	FROM tbl_Employees e
 		LEFT JOIN Submission.SubmissionApprovalEvents ae
 			ON e.Employee_ID = ae.Employee_Id
-				AND ae.EventDurationEndDate = '2023-11-15'-- > GETDATE()
+				AND DATEADD(day, 1, ae.EventDurationEndDate) > GETDATE()
 				AND ae.EventTypeId = '1'
-	WHERE ae.EventId IS NULL AND e.IsActive = '1'
+	WHERE ae.EventId IS NULL 
+			AND e.IsActive = '1'
+			AND e.Employee_Id NOT IN ('125', '134', '50', '103')
 
 
 SELECT *
-	FROM Submission.SubmissionApprovalEvents ae
-	WHERE Employee_Id = '48'
-			AND ae.EventDurationEndDate = '2023-10-22'
+	FROM tbl_Employees e
+		INNER JOIN Submission.SubmissionApprovalEvents ae
+			ON e.Employee_ID = ae.Employee_Id
+	WHERE ae.EventDurationEndDate = '2023-11-05'
 	ORDER BY ae.EventDateStamp desc
 
 
@@ -178,7 +181,7 @@ SELECT e.Employee_ID, e.Fname, e.Lname, f.Failures, t.Total, CAST(((f.Failures *
 		--AND e.Employee_ID IN ('144','131','159','129','56','157','140','96','139','155','156','73','168','169','164','163','166','143') -- Data Team
 		--AND e.Employee_ID IN ('103','127','120','154','135','57','49','133','170','58','119','146','62','161','173') -- Env Team
 		--AND e.Employee_ID IN ('50','158','151','125','134') -- Excluded
-	ORDER BY FailureRate DESC;
+	ORDER BY MostRecent DESC;
 	
 
 	

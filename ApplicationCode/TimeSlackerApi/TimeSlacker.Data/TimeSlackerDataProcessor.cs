@@ -23,7 +23,6 @@ namespace TimeSlackerApi.Data
 													INNER JOIN tbl_Employees e
 														ON ae.Employee_Id = e.Employee_ID
 												WHERE EventTypeId = '1'
-													AND e.IsActive = '1'
 													AND ae.EventDateStamp > DATEADD(day, 1, ae.EventDurationEndDate)
 													AND ae.EventDurationEndDate > '2022-05-23'
                                                     AND e.Employee_ID NOT IN ('125', '134', '50', '103') --Exclude Chris Rennix, Grace Grimsted, Katie Waldron, and Vanessa Nygren
