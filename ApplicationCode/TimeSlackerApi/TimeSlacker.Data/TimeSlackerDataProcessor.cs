@@ -125,7 +125,7 @@ namespace TimeSlackerApi.Data
 														AND ae.EventDurationEndDate > '2022-05-23'
 														AND ae.EventDurationEndDate < (SELECT TOP (1) ae.EventDurationEndDate
 																		FROM Submission.SubmissionApprovalEvents ae
-																		WHERE ae.EventDurationEndDate < GETDATE()
+																		WHERE DATEADD(day, 1, ae.EventDurationEndDate)  < GETDATE()
 																		ORDER BY ae.EventDurationEndDate DESC)
 											GROUP BY e.Employee_Id
 									), Failures (Employee_Id, Failures)
