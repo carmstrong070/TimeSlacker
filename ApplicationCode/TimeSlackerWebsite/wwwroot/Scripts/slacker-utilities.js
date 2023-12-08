@@ -1,5 +1,6 @@
 $(function () {
-    loadJson("/Scripts/slacker-data.json", function (jsonText) {
+    let jsonPath = (window.location.host === "10.97.97.81" ? "Content/Images/Slacker/Scripts/slacker-data.json" : "/Scripts/slacker-data.json");
+    loadJson(, function (jsonText) {
         slackerJson = JSON.parse(jsonText);
     });
 });
