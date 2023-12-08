@@ -511,3 +511,60 @@ body {
 .bb-axis line {
   stroke: #fff;
 }
+/* ---------------------------------------------- /*
+ * Slacker Details Modal
+/* ---------------------------------------------- */
+.slacker-detail-image {
+  display: block;
+  float: left;
+  border-bottom-left-radius: var(--bs-modal-border-radius);
+}
+.slacker-details-container {
+  position: relative;
+  height: 500px;
+  overflow-y: auto;
+  float: left;
+  text-align: left;
+  padding: var(--bs-modal-padding);
+  font-family: bahnshrift, sans-serif;
+}
+.slacker-details-container.ptc .flippable-back-meta-team-container {
+  margin-right: -5px;
+}
+.slacker-details-container.ptc .flippable-back-meta-team-label,
+.slacker-details-container.ptc .flippable-back-titling-name {
+  color: #2778ab;
+}
+.slacker-details-container.ptc .flippable-back-img-container {
+  border-color: #2778ab;
+}
+.slacker-details-container.env .flippable-back-meta-team-container {
+  margin-right: -10px;
+}
+.slacker-details-container.env .flippable-back-meta-team-label,
+.slacker-details-container.env .flippable-back-titling-name {
+  color: #418a3e;
+}
+.slacker-details-container.env .flippable-back-img-container {
+  border-color: #418a3e;
+}
+.slacker-details-container.dev .flippable-back-meta-team-container {
+  margin-right: -5px;
+}
+.slacker-details-container.dev .flippable-back-meta-team-label,
+.slacker-details-container.dev .flippable-back-titling-name {
+  color: #184965;
+}
+.slacker-details-container.dev .flippable-back-img-container {
+  border-color: #184965;
+}
+.slacker-details-container.fay .flippable-back-meta-team-container {
+  margin-right: -15px;
+}
+.slacker-details-container.fay .flippable-back-meta-team-label,
+.slacker-details-container.fay .flippable-back-titling-name {
+  color: #938c2d;
+}
+.slacker-details-container.fay .flippable-back-img-container {
+  border-color: #938c2d;
+}

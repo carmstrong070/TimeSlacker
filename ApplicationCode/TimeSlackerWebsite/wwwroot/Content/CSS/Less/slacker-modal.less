@@ -1,0 +1,82 @@
+﻿@import "slacker-mixins";
+@import "slacker-variables";
+
+/* ---------------------------------------------- /*
+ * Slacker Details Modal
+/* ---------------------------------------------- */
+
+.slacker-detail-image {
+    display: block;
+    float: left;
+    border-bottom-left-radius: var(--bs-modal-border-radius);
+}
+
+.slacker-details-container {
+    position: relative;
+    height: 500px;
+    overflow-y: auto;
+    float: left;
+    text-align: left;
+    padding: var(--bs-modal-padding);
+    font-family: bahnshrift, sans-serif;
+
+    &.ptc {
+        .flippable-back-meta-team-container {
+            margin-right: -5px;
+        }
+
+        .flippable-back-meta-team-label,
+        .flippable-back-titling-name {
+            color: @ptc-text-color;
+        }
+
+        .flippable-back-img-container {
+            border-color: @ptc-border-color;
+        }
+    }
+
+    &.env {
+        .flippable-back-meta-team-container {
+            margin-right: -10px;
+        }
+
+        .flippable-back-meta-team-label,
+        .flippable-back-titling-name {
+            color: @env-text-color;
+        }
+
+        .flippable-back-img-container {
+            border-color: @env-border-color;
+        }
+    }
+
+    &.dev {
+        .flippable-back-meta-team-container {
+            margin-right: -5px;
+        }
+
+        .flippable-back-meta-team-label,
+        .flippable-back-titling-name {
+            color: @dev-text-color;
+        }
+
+        .flippable-back-img-container {
+            border-color: @dev-border-color;
+        }
+    }
+
+    &.fay {
+        .flippable-back-meta-team-container {
+            margin-right: -15px;
+        }
+
+        .flippable-back-meta-team-label,
+        .flippable-back-titling-name {
+            color: @fay-text-color;
+        }
+
+        .flippable-back-img-container {
+            border-color: @fay-border-color;
+        }
+    }
+}

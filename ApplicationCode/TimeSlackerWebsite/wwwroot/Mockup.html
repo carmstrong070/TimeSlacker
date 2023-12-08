@@ -65,7 +65,7 @@
                     <div class="container-xl py-5">
                         <div class="separator"></div>
                         <h2 class="text-center text-white text-uppercase puristizer fw-bold mb-0" style="font-size: 3rem;">Latest failures</h2>
-                        <h3 class="text-center puristizer fw-light mb-0">
+                        <h3 class="text-center puristizer fw-light text-light mb-0">
                             <span id="recentStartDate">10/2</span> &mdash; <span id="recentEndDate">10/8</span>
                         </h3>
                         <div class="separator"></div>
@@ -424,57 +424,64 @@
             </div>
         </div>
 
-        <!-- INITIAL STAT CARDS -->
-        <div class="position-relative">
-            <div class="py-5">
-                <div class="container-xl">
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                                <h4 id="lblSecondStat" class="card-header"> Fails This Week</h4>
-                                <div class="card-body">
-                                    <ul id="ulFailsList">
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                                <h4 id="lblClosestCallName" class="card-header"> Stephano</h4>
-                                <div class="card-body">
-                                    <h4 class="card-title">Closest Call</h4>
-                                    <p id="lblClosestCallRate" class="card-text">
-                                        <span id="lblClosestCallTime">100</span> seconds before deadline
-                                    </p>
-                                    <p id="lblClosestCallDate">
-
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-                                <h4 id="lblFirstStat" class="card-header"></h4>
-                                <div class="card-body">
-                                    <h4 class="card-title">Failure Rate</h4>
-                                    <p id="lblFailureRate" class="card-text">
-
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- CHART DISPLAY -->
         <div class="position-relative">
             <div class="py-5">
                 <div class="container-xl">
                     <div id="chart"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLACKER MODAL -->
+        <div id="slacker-details-modal" class="modal fade">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-uppercase">Slacker Details</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body p-0">
+                        <img src="Content/Images/Employee Cards/vaughnz.jpg" width="300" height="500" class="slacker-detail-image" draggable="false" />
+                        <div class="slacker-details-container">
+                            <div class="flippable-back-titling">
+                                <span class="flippable-back-titling-name">Zach Vaughn</span>
+                                <span class="flippable-back-titling-job">Software Engineer</span>
+                            </div>
+                            <div class="flippable-back-meta">
+                                <div class="flippable-back-meta-years-container">
+                                    <span class="flippable-back-meta-years">11</span>
+                                    <span class="flippable-back-meta-years-label">years</span>
+                                </div>
+                                <div class="flippable-back-meta-team-container">
+                                    <img src="Content/Images/Logos/fay_50x50.png" width="50" height="50" class="flippable-back-meta-team" draggable="false" />
+                                    <span class="flippable-back-meta-team-label">Fay</span>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="flippable-back-stats">
+                                <div class="flippable-back-stat-container">
+                                    <span class="flippable-back-stat">15</span>
+                                    <span class="flippable-back-stat-label">Total Fails</span>
+                                </div>
+                                <div class="flippable-back-stat-container">
+                                    <span class="flippable-back-stat">14.85%</span>
+                                    <span class="flippable-back-stat-label">Failure Rate</span>
+                                </div>
+                                <div class="flippable-back-stat-container">
+                                    <span class="flippable-back-stat">9/30/2023</span>
+                                    <span class="flippable-back-stat-label">Last Fail</span>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="flippable-back-achievements-container">
+                                <img src="Content/Images/Achievements/test-achievement-1.png" width="50" height="50" class="flippable-back-achievement" draggable="false" />
+                                <img src="Content/Images/Achievements/test-achievement-2.png" width="50" height="50" class="flippable-back-achievement" draggable="false" />
+                                <img src="Content/Images/Achievements/test-achievement-3.png" width="50" height="50" class="flippable-back-achievement" draggable="false" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -491,6 +498,10 @@
     <script>
         $(function () {
             fitty(".flippable-back-titling-name");
+
+            $(".flippable-container").on("click", function (event) {
+                $("#slacker-details-modal").modal("show");
+            });
         });
     </script>
 </body>
