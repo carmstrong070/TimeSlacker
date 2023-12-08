@@ -1,5 +1,6 @@
 //-- Global variables
-var slacker_rootPath = "C:\\Team\\web\\";
+//var slacker_rootPath = "https://10.97.97.81/RiskChallenge/api/TimeSlacker/";
+var slacker_rootPath = "https://localhost:7244/api/TimeSlacker/";
 var slackerJson = {};
 
 //-- Init

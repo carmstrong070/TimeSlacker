@@ -1,6 +1,6 @@
 function getTotalFails() {
     $.ajax({
-        url: 'https://localhost:7244/api/TimeSlacker/GetTotalFails',
+        url: (slacker_rootPath + 'GetTotalFails'),
         method: 'GET',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -15,7 +15,7 @@ function getTotalFails() {
 
 function getRecentFails() {
     $.ajax({
-        url: 'https://localhost:7244/api/TimeSlacker/GetRecentFails',
+        url: (slacker_rootPath + 'GetRecentFails'),
         method: 'GET',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -34,7 +34,7 @@ function getRecentFails() {
 
 function getMostRecentPeriod() {
     $.ajax({
-        url: 'https://localhost:7244/api/TimeSlacker/GetMostRecentPeriod',
+        url: (slacker_rootPath + 'GetMostRecentPeriod'),
         method: 'GET',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -50,7 +50,7 @@ function getMostRecentPeriod() {
 
 function getClosestCall() {
     $.ajax({
-        url: 'https://localhost:7244/api/TimeSlacker/GetClosestCall',
+        url: (slacker_rootPath + 'GetClosestCall'),
         method: 'GET',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
@@ -67,7 +67,7 @@ function getClosestCall() {
 
 function getFailsOverTime() {
     $.ajax({
-        url: 'https://localhost:7244/api/TimeSlacker/GetFailsPerPeriod',
+        url: (slacker_rootPath + 'GetFailsPerPeriod'),
         method: 'GET',
         dataType: 'json',
         contentType: 'application/json; charset=utf-8',
