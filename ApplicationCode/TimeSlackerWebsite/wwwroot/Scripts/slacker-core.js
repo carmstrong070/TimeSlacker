@@ -5,6 +5,9 @@ var slackerJson = {};
 
 //-- Init
 $(function () {
+    checkAuthorization();
+
+    loadJson();
     getTotalFails();
     getMostRecentPeriod();
     getRecentFails();
