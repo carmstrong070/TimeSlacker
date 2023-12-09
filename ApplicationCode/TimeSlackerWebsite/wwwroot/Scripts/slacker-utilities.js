@@ -20,7 +20,8 @@ function loadJsonFile(jsonFilepath, callback) {
 }
 
 function checkAuthorization() {
-    if (window.location.host === "10.97.97.81" && document.referrer != "https://10.97.97.81/") {
+    if (window.location.host === "10.97.97.81" &&
+        document.referrer != "https://10.97.97.81/" && document.referrer != "http://10.97.97.81/") {
         window.location.href = "https://www.uspioneer.com/timetracker";
     }
 }
